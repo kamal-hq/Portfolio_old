@@ -98,7 +98,23 @@ This document provides a read-only, comprehensive audit of the portfolio website
 *   **Sitemaps & Robots**: Both `sitemap.xml` and `robots.txt` exist at the project root.
 *   **Accessibility Highlights**: Full keyboard operability for modals and carousels, responsive line-wrapping (`text-wrap: balance`), strict heading hierarchies, and robust reduced-motion support.
 
-## 8. Summary Snapshot
+## 8. Content Inventory
+
+*   **`index.html`**: 
+    *   Sections: Hero (Intro), Selected Work (Case Studies), About Me, Technical & Strategic Skills, Experience & Education (Timeline), Resources, Contact.
+*   **`certificates.html`**: 
+    *   Sections: Filterable grid of 56 certificates categorized by AI & Data, Programming, Marketing, Finance & Excel, Academic & Soft Skills.
+*   **`contact.html`**: 
+    *   Sections: Contact Form (Formspree), Embedded Google Map (Sargodha, Pakistan), CV Download Link, Social Media Links.
+*   **Content Observations (Resolved)**: The timeline dates flagged in the original audit as "future dates" (e.g., "Dec 2025 - Present", "Aug 2025 - Jan 2026") are no longer an issue, as the current date is now June 2026. The dates are chronologically accurate and do not require adjustment.
+
+## 9. Known Issues / TODOs
+
+*   **Commented-out Code**: `index.html` still contains a commented-out MySQL icon (`<!-- <img src="assets/icons/MySQL-removebg.png"... -->`) at line 161.
+*   **Console Logs**: `console.error` remains in the catch blocks of `testimonial.js` (lines 37 and 70).
+*   *(Note: The broken `carousel-scrollanimation.css` link and the global `onclick` issues flagged in the original audit were successfully resolved during Phase 6 and Phase 1, respectively).*
+
+## 10. Summary Snapshot
 
 *   The 9-Phase rebuild successfully transformed a functional vanilla site into a highly optimized, accessible, and premium web property.
 *   The architecture is deeply decoupled (Data in JS, Styles in CSS, Structure in HTML), completely eliminating the original anti-patterns (inline `onclick`, inline `<style>`, hardcoded HTML data lists).
