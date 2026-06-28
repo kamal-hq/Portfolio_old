@@ -10,7 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Muhammad Kamal – Portfolio</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/carousel-scrollanimation.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -329,61 +328,8 @@
 
 </section>
 
-<style>
-  /* Container for the placeholder */
-  .pdf-preview-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-color: #f8f9fa;
-    border: 2px dashed #cbd5e0; /* Light grey dashed border */
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-  }
-
-  /* Hover Effect: Glows with your Primary Blue */
-  .pdf-preview-container:hover {
-    border-color: var(--primary);
-    background-color: #eaf6ff; /* Very light blue tint */
-    transform: translateY(-2px);
-  }
-
-  /* Icon Styling */
-  .pdf-icon {
-    font-size: 3.5rem;
-    color: var(--primary); /* Deep Navy */
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .pdf-preview-container:hover .pdf-icon {
-    transform: scale(1.1);
-  }
-
-  /* Text Styling */
-  .pdf-text {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    color: var(--text-light);
-    font-size: 1rem;
-  }
-
-  .pdf-subtext {
-    font-size: 0.85rem;
-    color: var(--accent); /* Steel Blue */
-    margin-top: 0.5rem;
-  }
-</style>
-
 <section class="pdf-projects">
-  <h2 class="scroll-effect fade-in">📑 PDF Projects</h2>
+  <h2 class="scroll-effect fade-in">📑 Resources</h2>
   <p class="pdf-intro scroll-effect fade-in">
     Some of my written projects, reports, and creative documents available for download.
   </p>
@@ -391,73 +337,6 @@
   <div class="pdf-grid" id="pdf-container">
     </div>
 </section>
-
-<script>
-  // PDF Data
-  const pdfFiles = [
-    { 
-      title: "Booklet Cohort-III", 
-      file: "Booklet (Cohort-III).pdf", 
-      desc: "Official booklet for Business Incubation Center Cohort-III." 
-    },
-    { 
-      title: "EXCHANGE PROGRAM - Booklet", 
-      file: "EXCHANGE PROGRAM - Record.pdf", 
-      desc: "Official booklet for Exchange Program to USA by Incharge BIC." 
-    }
-  ];
-
-  const container = document.getElementById("pdf-container");
-
-  // Render Cards with Placeholders
-  pdfFiles.forEach((pdf, index) => {
-    const card = document.createElement("div");
-    card.className = "pdf-card scroll-effect slide-up";
-    
-    // Create unique IDs for the container and the file path
-    const containerId = `pdf-wrapper-${index}`;
-    const filePath = `./assets/pdfs/${pdf.file}`;
-
-    card.innerHTML = `
-      <h3>${pdf.title}</h3>
-      <p>${pdf.desc}</p>
-      
-      <div id="${containerId}" class="pdf-preview-container" onclick="loadPdfPreview('${containerId}', '${filePath}')">
-        <div class="pdf-icon">📄</div>
-        <div class="pdf-text">Click to Preview PDF</div>
-        <div class="pdf-subtext">(Loads instantly)</div>
-      </div>
-
-      <a href="${filePath}" download class="download-btn" style="margin-top: auto;">
-         Download PDF
-      </a>
-    `;
-    container.appendChild(card);
-  });
-
-  // Function to Swap Placeholder with Real PDF
-  function loadPdfPreview(containerId, filePath) {
-    const wrapper = document.getElementById(containerId);
-    
-    // Create the iframe
-    const iframe = document.createElement('iframe');
-    iframe.src = `${filePath}#toolbar=0&navpanes=0&scrollbar=0`;
-    iframe.width = "100%";
-    iframe.height = "100%";
-    iframe.style.border = "none";
-    iframe.style.borderRadius = "8px";
-    
-    // Clear the placeholder content and append iframe
-    wrapper.innerHTML = ''; 
-    wrapper.style.border = "none"; // Remove dashed border
-    wrapper.style.backgroundColor = "transparent"; // Remove background
-    wrapper.appendChild(iframe);
-    
-    // Remove onclick so clicking again doesn't reload it
-    wrapper.onclick = null;
-    wrapper.style.cursor = "default";
-  }
-</script>
 
 <section class="contact">
   <h2 class="scroll-effect slide-up">Contact Me</h2>
@@ -483,7 +362,7 @@
 
 
   <!-- Skills, Projects, Experience, Certifications, and Footer will follow -->
-<script src="./JavaScript/script.js"></script>
-<script src="./JavaScript/scroll-animation.js"></script>
+<script src="./JavaScript/script.js" defer></script>
+<script src="./JavaScript/scroll-animation.js" defer></script>
 </body>
 </html>

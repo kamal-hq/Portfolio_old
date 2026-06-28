@@ -62,10 +62,10 @@ A contact page UI design at 1440px width. Warm off-white background (#F1F0EB). A
 - [x] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media
 
 ## Phase 6 — Sitewide cleanup
-- [ ] 13. Extract inline `<style>` and `<script>` blocks from `index.html` into external files
-- [ ] 14. Fix or remove broken reference to `css/carousel-scrollanimation.css`
-- [ ] 15. Add `defer` attribute to every `<script>` tag across all three pages
-- [ ] 16. Add descriptive `title` attribute to contact page's map iframe
+- [x] 13. Extract inline `<style>` and `<script>` blocks from `index.html` into external files
+- [x] 14. Fix or remove broken reference to `css/carousel-scrollanimation.css`
+- [x] 15. Add `defer` attribute to every `<script>` tag across all three pages
+- [x] 16. Add descriptive `title` attribute to contact page's map iframe
 
 ## Phase 7 — SEO and technical baseline
 - [ ] 17. Add `sitemap.xml` and `robots.txt` at project root

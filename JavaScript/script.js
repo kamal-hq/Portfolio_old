@@ -248,3 +248,73 @@ function initHeroTilt() {
     });
   });
 }
+
+/* ============================ */
+/* ===== PDF PROJECTS LOGIC === */
+/* ============================ */
+const pdfFiles = [
+  { 
+    title: "Booklet Cohort-III", 
+    file: "Booklet (Cohort-III).pdf", 
+    desc: "Official booklet for Business Incubation Center Cohort-III." 
+  },
+  { 
+    title: "EXCHANGE PROGRAM - Booklet", 
+    file: "EXCHANGE PROGRAM - Record.pdf", 
+    desc: "Official booklet for Exchange Program to USA by Incharge BIC." 
+  }
+];
+
+const pdfContainer = document.getElementById("pdf-container");
+
+if (pdfContainer) {
+  // Render Cards with Placeholders
+  pdfFiles.forEach((pdf, index) => {
+    const card = document.createElement("div");
+    card.className = "pdf-card scroll-effect slide-up";
+    
+    // Create unique IDs for the container and the file path
+    const containerId = `pdf-wrapper-${index}`;
+    const filePath = `./assets/pdfs/${pdf.file}`;
+
+    card.innerHTML = `
+      <h3>${pdf.title}</h3>
+      <p>${pdf.desc}</p>
+      
+      <div id="${containerId}" class="pdf-preview-container" onclick="loadPdfPreview('${containerId}', '${filePath}')">
+        <div class="pdf-icon">📄</div>
+        <div class="pdf-text">Click to Preview PDF</div>
+        <div class="pdf-subtext">(Loads instantly)</div>
+      </div>
+
+      <a href="${filePath}" download class="download-btn" style="margin-top: auto;">
+         Download PDF
+      </a>
+    `;
+    pdfContainer.appendChild(card);
+  });
+}
+
+// Function to Swap Placeholder with Real PDF
+function loadPdfPreview(containerId, filePath) {
+  const wrapper = document.getElementById(containerId);
+  if (!wrapper) return;
+  
+  // Create the iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = `${filePath}#toolbar=0&navpanes=0&scrollbar=0`;
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.style.border = "none";
+  iframe.style.borderRadius = "8px";
+  
+  // Clear the placeholder content and append iframe
+  wrapper.innerHTML = ''; 
+  wrapper.style.border = "none"; // Remove dashed border
+  wrapper.style.backgroundColor = "transparent"; // Remove background
+  wrapper.appendChild(iframe);
+  
+  // Remove onclick so clicking again doesn't reload it
+  wrapper.onclick = null;
+  wrapper.style.cursor = "default";
+}
