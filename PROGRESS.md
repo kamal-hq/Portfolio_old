@@ -68,9 +68,9 @@ A contact page UI design at 1440px width. Warm off-white background (#F1F0EB). A
 - [x] 16. Add descriptive `title` attribute to contact page's map iframe
 
 ## Phase 7 — SEO and technical baseline
-- [ ] 17. Add `sitemap.xml` and `robots.txt` at project root
-- [ ] 18. Add schema.org Person structured data to `index.html`
-- [ ] 19. Confirm every page has a unique `og:image`; add for certificates/contact if missing
+- [x] 17. Add `sitemap.xml` and `robots.txt` at project root
+- [x] 18. Add schema.org Person structured data to `index.html`
+- [x] 19. Confirm every page has a unique `og:image`; add for certificates/contact if missing
 
 ## Phase 8 — Accessibility and motion
 - [ ] 20. Make lightbox and carousel fully keyboard-operable
