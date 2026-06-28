@@ -59,7 +59,7 @@ A contact page UI design at 1440px width. Warm off-white background (#F1F0EB). A
 - [x] 11. Replace hero subtext with positioning line consistent with LinkedIn headline style
 
 ## Phase 5 — Selected work section
-- [ ] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media
+- [x] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media
 
 ## Phase 6 — Sitewide cleanup
 - [ ] 13. Extract inline `<style>` and `<script>` blocks from `index.html` into external files

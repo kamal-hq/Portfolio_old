@@ -1122,6 +1122,31 @@ footer {
   }
 }
 
+/* Phase 5 Selected Work Enhancements */
+.v2-case-study-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.v2-case-study-list li {
+  margin-bottom: var(--space-3);
+  line-height: 1.5;
+}
+
+.v2-case-study-list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.v2-case-study-outcome {
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(20, 33, 61, 0.08);
+}
+
 /* ========================================= */
 /* NEW COMPONENT CLASSES (Phase 3 Additions) */
 /* ========================================= */
