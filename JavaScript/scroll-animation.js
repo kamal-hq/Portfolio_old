@@ -39,8 +39,20 @@ if (carousel) {
   window.nextSlide = function() { showSlide(index + 1); };
   window.prevSlide = function() { showSlide(index - 1); };
 
-  // Auto-play (Optional - 4 seconds)
-  setInterval(window.nextSlide, 4000);
+  // Auto-play (ONLY if user does not prefer reduced motion)
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(window.nextSlide, 4000);
+  }
+
+  // Keyboard support for carousel
+  const container = document.querySelector('.carousel-container');
+  if (container) {
+    container.setAttribute('tabindex', '0');
+    container.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') window.prevSlide();
+      if (e.key === 'ArrowRight') window.nextSlide();
+    });
+  }
 }
 
 /* ========================================= */

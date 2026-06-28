@@ -154,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
  * Scoped as a plain function — called by the dynamically-attached
  * addEventListener handlers on View buttons (no window.* needed).
  */
+let lastFocusedElement = null;
+
 function openLightbox(imageSrc, caption) {
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightbox-img");
@@ -161,9 +163,17 @@ function openLightbox(imageSrc, caption) {
 
   if (!lightbox || !lightboxImg || !captionText) return;
 
+  // Store where the user was before opening the lightbox
+  lastFocusedElement = document.activeElement;
+
   lightbox.style.display = "block";
   lightboxImg.src = imageSrc;
+  lightboxImg.alt = caption; // Dynamic descriptive alt
   captionText.textContent = caption;
+
+  // Force focus into the modal directly onto the close button
+  const closeBtn = document.querySelector(".close-lightbox");
+  if (closeBtn) closeBtn.focus();
 }
 
 /**
@@ -173,6 +183,11 @@ function closeLightbox() {
   var lightbox = document.getElementById("lightbox");
   if (lightbox) {
     lightbox.style.display = "none";
+    
+    // Restore focus to the card that triggered it
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   }
 }
 
@@ -182,9 +197,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightbox-img");
 
-  // Close when clicking the 'x' button
+  // Close when clicking the 'x' button or pressing Space/Enter on it
   if (closeBtn) {
     closeBtn.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("keydown", function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeLightbox();
+      }
+    });
   }
 
   // Close when clicking outside the image (on the overlay)
@@ -194,7 +215,21 @@ document.addEventListener('DOMContentLoaded', function () {
         closeLightbox();
       }
     });
+    
+    // Full Tab-trap for lightbox modal
+    lightbox.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') {
+        // Prevent tabbing outside the single focusable element (closeBtn)
+        e.preventDefault();
+        if (closeBtn) closeBtn.focus();
+      }
+    });
   }
+
+  // Global Escape key to close the lightbox
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   // Initialize Phase 4 Hero Tilt if elements exist
   initHeroTilt();

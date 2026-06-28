@@ -52,34 +52,34 @@ A contact page UI design at 1440px width. Warm off-white background (#F1F0EB). A
 </details>
 
 - [x] 8. Generate flat reference images, summarize output — do not apply yet — **Done.** Used a generic image generation tool (not Stitch) to produce three flat reference images (Home, Certificates, Contact) as a visual sanity check. No real HTML/CSS export exists. Summary with embedded images and DESIGN.md compliance audit produced. No code modified.
-- [x] 9. Translate approved layout/spacing decisions into CSS variable system in `css/main.css` (Note: Timeline/filter/contact-form parent classes are unprefixed, but their child/component classes use v2- prefix — use exact names from Task 9's diff when building real HTML in later phases, don't guess.)
+- [x] 9. Translate approved layout/spacing decisions into CSS variable system in `css/main.css` — **Done.** Variables configured; exact parent/component classes respected.
 
 ## Phase 4 — Hero rebuild
-- [x] 10. Implement tilt-on-cursor-photo + orbiting-skill-icon hero using DESIGN.md tokens
-- [x] 11. Replace hero subtext with positioning line consistent with LinkedIn headline style
+- [x] 10. Implement tilt-on-cursor-photo + orbiting-skill-icon hero using DESIGN.md tokens — **Done.** Orbit tracks logic created with dynamic inline transforms.
+- [x] 11. Replace hero subtext with positioning line consistent with LinkedIn headline style — **Done.** Updated string verbatim.
 
 ## Phase 5 — Selected work section
-- [x] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media
+- [x] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media — **Done.** Custom CSS Grid implemented in `index.html`.
 
 ## Phase 6 — Sitewide cleanup
-- [x] 13. Extract inline `<style>` and `<script>` blocks from `index.html` into external files
-- [x] 14. Fix or remove broken reference to `css/carousel-scrollanimation.css`
-- [x] 15. Add `defer` attribute to every `<script>` tag across all three pages
-- [x] 16. Add descriptive `title` attribute to contact page's map iframe
+- [x] 13. Extract inline `<style>` and `<script>` blocks from `index.html` into external files — **Done.** Resources layout restored, script/style content moved to CSS/JS.
+- [x] 14. Fix or remove broken reference to `css/carousel-scrollanimation.css` — **Done.** Tag deleted entirely, unneeded.
+- [x] 15. Add `defer` attribute to every `<script>` tag across all three pages — **Done.** Defer ensures parsing isn't blocked.
+- [x] 16. Add descriptive `title` attribute to contact page's map iframe — **Done.** Added descriptive string for screen readers.
 
 ## Phase 7 — SEO and technical baseline
-- [x] 17. Add `sitemap.xml` and `robots.txt` at project root
-- [x] 18. Add schema.org Person structured data to `index.html`
-- [x] 19. Confirm every page has a unique `og:image`; add for certificates/contact if missing
+- [x] 17. Add `sitemap.xml` and `robots.txt` at project root — **Done.** Both generated and linked.
+- [x] 18. Add schema.org Person structured data to `index.html` — **Done.** Verified valid JSON-LD format.
+- [x] 19. Confirm every page has a unique `og:image`; add for certificates/contact if missing — **Done.** Replicated for all pages.
 
 ## Phase 8 — Accessibility and motion
-- [ ] 20. Make lightbox and carousel fully keyboard-operable
-- [ ] 21. Wrap custom animations in `@media (prefers-reduced-motion: reduce)` fallbacks
-- [ ] 22. Run heading-hierarchy and alt-text check across all pages and fix gaps
+- [x] 20. Make lightbox and carousel fully keyboard-operable — **Done.** Tab-trapping and explicit ArrowLeft/ArrowRight listeners configured.
+- [x] 21. Wrap custom animations in `@media (prefers-reduced-motion: reduce)` fallbacks — **Done.** Fallbacks gracefully suspend orbits at staggered angles.
+- [x] 22. Run heading-hierarchy and alt-text check across all pages and fix gaps — **Done.** contact.html `h3` promoted to `h2`, and lightbox modal injected with dynamic `alt` tags.
 
 ## Phase 9 — Analytics and final QA
-- [ ] 23. Add lightweight analytics snippet (ask user for provider first)
-- [ ] 24. Final responsive pass at 360px, 768px, 1024px, 1440px — fix overflow/wrapping issues
+- [~] 23. Add lightweight analytics snippet (Skipped/Deferred by user) — **Not done.** Intentionally skipped by user per direct instructions.
+- [x] 24. Final responsive pass at 360px, 768px, 1024px, 1440px — fix overflow/wrapping issues — **Done.** Verified 360px safety; grid `minmax` clamp applied and `.nav-pill` wrapping fixed.
 
 ---
 
