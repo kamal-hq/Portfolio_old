@@ -15,21 +15,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header class="hero">
-    <nav class="nav">
-      <a href="./index.html" class="nav-item" >Home</a>
-      <a href="./pages/certificates.html" class="nav-item" >Certificates</a>
-      <a href="./pages/contact.html" class="nav-item" >Contact</a>
-      <span class="nav-indicator"></span>
+  <header class="v2-hero">
+    <nav class="nav-pill">
+      <a href="./index.html" class="active">Home</a>
+      <a href="./pages/certificates.html">Certificates</a>
+      <a href="./pages/contact.html">Contact</a>
     </nav>
 
-    <div class="hero-content">
-      <img class="c-avatar__img scroll-effect slide-up" src="./assets/images/MuhammadKama.jpeg" alt="Profile Image - Muhammad Kamal">
-      <h1 class="scroll-effect slide-in-left">Muhammad Kamal</h1>
-      <p class="scroll-effect slide-in-right">Business Administration | Data Analytics & Strategy | Community Management</p>
+    <div class="v2-hero-interactive-zone" id="heroTiltZone">
+      <!-- Independent Orbit Tracks -->
+      <div class="v2-orbit-track" style="--track-size: 140%; --orbit-speed: 20s; --start-angle: 0deg;">
+        <div class="v2-orbit-icon"><i class="fa-brands fa-python"></i></div>
+      </div>
+      
+      <div class="v2-orbit-track" style="--track-size: 110%; --orbit-speed: 15s; --start-angle: 90deg; --orbit-direction: reverse;">
+        <div class="v2-orbit-icon"><i class="fa-solid fa-database"></i></div> <!-- SQL -->
+      </div>
+      
+      <div class="v2-orbit-track" style="--track-size: 160%; --orbit-speed: 25s; --start-angle: 180deg;">
+        <div class="v2-orbit-icon"><i class="fa-solid fa-chart-column"></i></div> <!-- Power BI -->
+      </div>
+      
+      <div class="v2-orbit-track" style="--track-size: 125%; --orbit-speed: 18s; --start-angle: 270deg; --orbit-direction: reverse;">
+        <div class="v2-orbit-icon"><i class="fa-solid fa-robot"></i></div> <!-- GenAI -->
+      </div>
+
+      <!-- The photo itself -->
+      <div class="v2-hero-avatar-wrapper" id="heroAvatarWrapper">
+        <img src="./assets/images/MuhammadKama.jpeg" alt="Muhammad Kamal" class="v2-hero-avatar">
+      </div>
     </div>
+
+    <h1 class="scroll-effect slide-in-left">Muhammad Kamal</h1>
+    <p class="hero-subtext scroll-effect slide-in-right">Co-Founder @TriSyn Media | Digital Marketing × Data Analytics | Python · Power BI · SQL · GenAI</p>
   </header>
 
   <section class="about">

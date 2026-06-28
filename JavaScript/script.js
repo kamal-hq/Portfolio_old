@@ -195,4 +195,56 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Initialize Phase 4 Hero Tilt if elements exist
+  initHeroTilt();
 });
+
+/* ============================ */
+/* ===== HERO TILT LOGIC ====== */
+/* ============================ */
+function initHeroTilt() {
+  const zone = document.getElementById('heroTiltZone');
+  const wrapper = document.getElementById('heroAvatarWrapper');
+  
+  if (!zone || !wrapper) return;
+
+  // 1. Accessibility Check
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  // 2. Touch Device Check
+  const isHoverableDevice = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!isHoverableDevice) return;
+
+  const maxTilt = 15; // Max degrees of tilt
+  let reqId;
+
+  zone.addEventListener('mousemove', function(e) {
+    if (reqId) cancelAnimationFrame(reqId);
+    
+    reqId = requestAnimationFrame(function() {
+      const rect = zone.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      // Calculate cursor distance from center as a percentage (-1 to 1)
+      const xPercent = (e.clientX - centerX) / (rect.width / 2);
+      const yPercent = (e.clientY - centerY) / (rect.height / 2);
+      
+      const tiltX = (xPercent * maxTilt).toFixed(2);
+      const tiltY = (yPercent * maxTilt * -1).toFixed(2);
+      
+      wrapper.style.setProperty('--tilt-x', `${tiltX}deg`);
+      wrapper.style.setProperty('--tilt-y', `${tiltY}deg`);
+    });
+  });
+
+  zone.addEventListener('mouseleave', function() {
+    if (reqId) cancelAnimationFrame(reqId);
+    reqId = requestAnimationFrame(function() {
+      wrapper.style.setProperty('--tilt-x', '0deg');
+      wrapper.style.setProperty('--tilt-y', '0deg');
+    });
+  });
+}

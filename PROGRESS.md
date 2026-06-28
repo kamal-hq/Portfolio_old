@@ -55,8 +55,8 @@ A contact page UI design at 1440px width. Warm off-white background (#F1F0EB). A
 - [x] 9. Translate approved layout/spacing decisions into CSS variable system in `css/main.css` (Note: Timeline/filter/contact-form parent classes are unprefixed, but their child/component classes use v2- prefix — use exact names from Task 9's diff when building real HTML in later phases, don't guess.)
 
 ## Phase 4 — Hero rebuild
-- [ ] 10. Implement tilt-on-cursor-photo + orbiting-skill-icon hero using DESIGN.md tokens
-- [ ] 11. Replace hero subtext with positioning line consistent with LinkedIn headline style
+- [x] 10. Implement tilt-on-cursor-photo + orbiting-skill-icon hero using DESIGN.md tokens
+- [x] 11. Replace hero subtext with positioning line consistent with LinkedIn headline style
 
 ## Phase 5 — Selected work section
 - [ ] 12. Add "Selected work" section with case-study entries for Ascend AI and TriSyn Media
