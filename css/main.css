@@ -18,10 +18,10 @@
   --card-bg: #ffffff;       /* Pure White */
    
   /* Layout & Effects */
-  --border-radius: 0.75rem;
+  --border-radius: 1rem;
   --shadow-sm: 0 1px 3px rgba(20, 33, 61, 0.08);
   --shadow-md: 0 4px 12px rgba(20, 33, 61, 0.12);
-  --transition: all 0.3s ease;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* --- V2 DESIGN SYSTEM VARIABLES --- */
   --primary-deep: #0C1425;
@@ -31,7 +31,7 @@
   --text-muted: #6C757D;
   --text-on-primary: #FFFFFF;
   --text-on-secondary: #14213D;
-  --shadow-lg: 0 8px 24px rgba(20, 33, 61, 0.16);
+  --shadow-lg: 0 8px 30px rgba(20, 33, 61, 0.16);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
   --space-1: 0.25rem;
@@ -43,7 +43,7 @@
   --space-7: 4rem;
   --space-8: 6rem;
   --space-9: 8rem;
-  --section-max-width: 68.75rem;
+  --section-max-width: 80rem;
   --radius-sm: 0.375rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
@@ -54,6 +54,21 @@
   --ease-micro: ease-out;
   --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-modal: ease;
+
+  /* --- REFERENCE DESIGN TOKENS --- */
+  --stack-xl: 8rem;
+  --stack-lg: 4rem;
+  --stack-md: 2rem;
+  --gutter: 1.5rem;
+  --margin-mobile: 1rem;
+  --margin-desktop: 2.5rem;
+  --shadow-hover: 0 8px 30px rgba(255, 165, 21, 0.15);
+  --shadow-amber-glow: 0 4px 20px rgba(255, 165, 21, 0.4);
+  --color-surface-low: #f5f4ef;
+  --color-surface-variant: #e3e3de;
+  --color-outline-variant: #c5c6ce;
+  --color-on-surface-variant: #45464d;
+  --color-surface-tint: #525e7d;
 }
 
 /* 2. GLOBAL RESET */
@@ -75,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--primary);
   margin-bottom: 0.5rem;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 a {
@@ -93,11 +108,11 @@ ul {
 /* ========================================= */
 
 header.hero {
-  background: linear-gradient(135deg, #0f4c75, #020c23); 
+  background: linear-gradient(135deg, #14213d 0%, #000a24 100%);
   color: white;
-  padding: 2rem 0.5rem 1.5rem 0.5rem; /* More top padding for the nav */
+  padding: var(--stack-xl) var(--margin-mobile) var(--stack-lg) var(--margin-mobile);
   text-align: center;
-  border-radius: 0 0 3.125rem 3.125rem;
+  border-radius: 0 0 2rem 2rem;
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 100;
@@ -197,9 +212,11 @@ nav a:hover::after {
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: #fff;
-  text-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .hero p.tagline {
@@ -210,20 +227,20 @@ nav a:hover::after {
 
 /* 4. SECTIONS & LAYOUT */
 section {
-  padding: var(--space-8) var(--space-4);
+  padding: var(--stack-xl) var(--margin-desktop);
   max-width: var(--section-max-width);
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: var(--space-6) var(--space-3);
+    padding: var(--stack-lg) var(--margin-mobile);
   }
 }
 
 section h2 {
-  font-size: 1.5rem;
-  margin-bottom: o.8rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--stack-md);
   text-align: center;
   position: relative;
   display: inline-block;
@@ -233,24 +250,24 @@ section h2 {
 section h2::after {
   content: '';
   display: block;
-  width: 3.75rem;
-  height: 0.25rem;
-  background: var(--secondary);
-  margin: 0.3rem auto 0 auto;
-  border-radius: 0.125rem;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-outline-variant), transparent);
+  margin: 1rem auto 0 auto;
+  border-radius: 0;
 }
 
 /* 5. CARDS (Unified Styles & Flexbox) */
 .card, .project-card, .cert-card, .video-box, .pdf-card {
   background: var(--card-bg);
-  border-radius: var(--border-radius);
+  border-radius: 1rem;
   box-shadow: var(--shadow-sm);
-  padding: 1.5rem;
+  padding: 2rem;
   transition: var(--transition);
   overflow: hidden;
   height: 100%; /* Critical for Grid Alignment */
   text-align: center;
-  border: 0.063rem solid rgba(0,0,0,0.03);
+  border: 0.5px solid var(--color-outline-variant);
   
   /* Flexbox for Internal Alignment */
   display: flex;
@@ -258,9 +275,9 @@ section h2::after {
 }
 
 .card:hover, .project-card:hover, .cert-card:hover, .video-box:hover, .pdf-card:hover {
-  transform: translateY(-0.5rem);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(50, 130, 184, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255, 165, 21, 0.3);
 }
 
 .card img, .project-card img, .cert-card img {
@@ -300,7 +317,7 @@ section h2::after {
 
 .skill-bars .level {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
+  background: linear-gradient(90deg, var(--color-surface-tint), var(--primary));
   width: 0;
   border-radius: 0.625rem;
   animation: fillBar 1.5s ease-out forwards;
@@ -342,7 +359,7 @@ section h2::after {
   max-width: 50rem;
   margin: 2rem auto;
   padding-left: 1.875rem;
-  border-left: 0.188rem solid #e1e8ed;
+  border-left: 2px solid var(--color-surface-tint);
 }
 
 .timeline-item {
@@ -360,6 +377,12 @@ section h2::after {
   top: 0.313rem;
   border: 0.188rem solid #fff;
   box-shadow: 0 0 0 3px rgba(255, 165, 2, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(255, 165, 21, 0.6);
 }
 
 .timeline-content h3 {
@@ -412,13 +435,13 @@ section h2::after {
   background: var(--primary);
   color: white;
   padding: 0.8rem 1.8rem;
-  border-radius: 1.875rem;
+  border-radius: 100px;
   border: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95rem;
   transition: var(--transition);
-  box-shadow: 0 0.25rem 0.625rem rgba(15, 76, 117, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .button:hover, .download-btn:hover {
@@ -426,7 +449,7 @@ section h2::after {
   color: white;
   transform: translateY(-2px);
   text-decoration: none;
-  box-shadow: 0 0.375rem 0.938rem rgba(50, 130, 184, 0.4);
+  box-shadow: var(--shadow-amber-glow);
 }
 
 /* Extra Safety: Ensure the icon itself behaves */
@@ -469,9 +492,9 @@ section h2::after {
 }
 
 footer {
-  background: linear-gradient(135deg, #0f4c75, #020c23); 
+  background: var(--primary);
   color: #fff;
-  padding: 1rem;
+  padding: var(--stack-lg) var(--margin-desktop);
   text-align: center;
 }
 
@@ -1237,10 +1260,10 @@ footer {
 
 /* Hero Section */
 .v2-hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  background: linear-gradient(135deg, #14213d 0%, #000a24 100%);
   color: var(--text-on-primary);
   text-align: center;
-  padding: var(--space-8) var(--space-4) var(--space-6);
+  padding: var(--stack-xl) var(--margin-desktop) var(--stack-lg);
 }
 
 .hero-compact {
@@ -1312,17 +1335,18 @@ footer {
 /* Component: Cards (General) */
 .card-base {
   background: var(--surface);
-  border: 1px solid rgba(20, 33, 61, 0.06);
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
+  border: 0.5px solid var(--color-outline-variant);
+  border-radius: 1rem;
+  padding: 2rem;
   box-shadow: var(--shadow-sm);
   transition: transform var(--duration-micro) var(--ease-micro),
               box-shadow var(--duration-micro) var(--ease-micro);
 }
 
 .card-base:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255, 165, 21, 0.3);
 }
 
 /* Selected Work Section (Home) */
@@ -1419,4 +1443,270 @@ footer {
   border-radius: var(--radius-md);
   overflow: hidden;
   margin-top: var(--space-6);
+}
+
+/* ========================================= */
+/* REFERENCE DESIGN: FLOATING ANIMATIONS     */
+/* ========================================= */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* REFERENCE DESIGN: Amber Glow Button Effect */
+.glow-amber:hover {
+  box-shadow: var(--shadow-amber-glow);
+}
+
+/* REFERENCE DESIGN: Section Alternating Backgrounds */
+section:nth-child(even) {
+  background-color: var(--color-surface-low);
+}
+
+/* REFERENCE DESIGN: Timeline card enhancements */
+.timeline-content {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 0.5px solid var(--color-outline-variant);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  box-shadow: var(--shadow-md);
+}
+
+/* REFERENCE DESIGN: Hero subtext enhancement */
+.hero-subtext {
+  border-left: 4px solid var(--secondary);
+  padding-left: 1.5rem;
+}
+
+/* REFERENCE DESIGN: Skill bar track enhancement */
+.skill-bars .bar {
+  height: 0.5rem;
+  background: var(--color-surface-variant);
+}
+
+
+/* REFERENCE DESIGN: Hero compact for sub-pages */
+.hero-compact {
+  padding: var(--stack-lg) var(--margin-mobile) var(--stack-md) var(--margin-mobile) !important;
+}
+
+/* REFERENCE DESIGN: Intro text styling */
+.intro-text {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  text-align: center;
+}
+
+/* REFERENCE DESIGN: Timeline divider labels */
+.timeline-divider {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-surface-tint);
+  padding: 0.5rem 0;
+  margin: 1.5rem 0;
+}
+
+/* ========================================= */
+/* V2 UNIFIED FOOTER COMPONENT               */
+/* ========================================= */
+.v2-footer {
+  background-color: var(--primary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.v2-footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .v2-footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
+
+/* Left Column Styling */
+.v2-footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.v2-footer-label {
+  color: var(--secondary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.v2-footer-heading {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-on-primary);
+  margin-bottom: var(--space-2);
+}
+
+.v2-footer-tagline {
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.v2-footer-email {
+  color: var(--text-on-primary);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: var(--space-5);
+  position: relative;
+}
+
+.v2-footer-email::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color var(--duration-micro) var(--ease-micro);
+}
+
+.v2-footer-email:hover::after {
+  background-color: var(--secondary);
+}
+
+/* Social Links styling */
+.v2-social-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.v2-social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  color: var(--text-on-primary);
+  font-size: 1.25rem;
+  transition: border-color var(--duration-micro) var(--ease-micro), color var(--duration-micro) var(--ease-micro);
+}
+
+.v2-social-links a:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+/* Right Column Styling */
+.v2-footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .v2-footer-right {
+    align-items: flex-end;
+    text-align: right;
+    align-self: center;
+  }
+}
+
+.v2-footer-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--text-on-primary);
+  margin-bottom: var(--space-2);
+}
+
+.v2-footer-role {
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+/* Disable the global h2 underline pseudo-element specifically for these footer headings */
+.v2-footer-heading::after,
+.v2-footer-name::after {
+  display: none !important;
+}
+
+/* Bottom Strip Styling */
+.v2-footer-bottom {
+  display: block;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.v2-footer-bottom-inner {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .v2-footer-bottom-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.v2-copyright,
+.v2-tech-stack {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
 }

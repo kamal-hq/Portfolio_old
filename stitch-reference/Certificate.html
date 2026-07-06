@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Certifications - Digital &amp; Data Analytics Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#0d1b36",
+                        "surface-container-high": "#e9e8e3",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface": "#faf9f4",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#002537",
+                        "primary-fixed": "#d9e2ff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1b1c19",
+                        "primary-fixed-dim": "#b9c6ea",
+                        "error": "#ba1a1a",
+                        "background": "#faf9f4",
+                        "surface-bright": "#faf9f4",
+                        "secondary-container": "#ffa515",
+                        "on-tertiary-fixed-variant": "#064c6b",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#98cdf2",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c5c6ce",
+                        "on-secondary-fixed": "#2a1700",
+                        "surface-container-highest": "#e3e3de",
+                        "on-background": "#1b1c19",
+                        "secondary-fixed": "#ffddb8",
+                        "surface-container": "#efeee9",
+                        "secondary": "#855300",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "surface-variant": "#e3e3de",
+                        "primary-container": "#14213d",
+                        "primary": "#000a24",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "tertiary": "#000d17",
+                        "on-secondary-container": "#684000",
+                        "surface-container-low": "#f5f4ef",
+                        "on-tertiary-fixed": "#001e2e",
+                        "tertiary-fixed": "#c7e7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#7c89aa",
+                        "on-surface-variant": "#45464d",
+                        "inverse-primary": "#b9c6ea",
+                        "surface-dim": "#dbdad5",
+                        "outline": "#75777e",
+                        "on-primary-fixed-variant": "#3a4664",
+                        "surface-tint": "#525e7d",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#5a8fb2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "8rem",
+                        "gutter": "1.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "4rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-md": "2rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Outfit"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Outfit"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translate3d(0, 30px, 0)' },
+                            '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(-5%)' },
+                            '50%': { transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .delay-100 { animation-delay: 100ms; transition-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; transition-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; transition-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; transition-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden pt-24 min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface/70 backdrop-blur-xl fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl rounded-full border-[0.5px] border-white/20 shadow-xl flex justify-between items-center px-8 py-4 z-50">
+<div class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">Portfolio.Analytics</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Expertise</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Case Studies</a>
+<a class="text-primary relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Certifications</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Contact</a>
+</div>
+<a class="bg-secondary-container text-on-primary-fixed hover:bg-secondary hover:text-on-primary px-6 py-2 rounded-full font-label-md text-label-md transition-colors duration-300 active:scale-95 shadow-md hover:shadow-[0_4px_20px_rgba(252,163,17,0.3)]" href="#">Let's Connect</a>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center w-full px-margin-mobile md:px-margin-desktop pb-stack-xl">
+<!-- Hero Section -->
+<header class="w-full max-w-container-max relative rounded-[2rem] p-12 md:p-16 mb-stack-lg shadow-sm flex flex-col items-center justify-center text-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 w-full h-full object-cover z-0 opacity-80 mix-blend-screen">
+            {{DATA:ANIMATION:ANIMATION_1}}
+        </div>
+<div class="relative z-10 w-full h-full flex flex-col items-center justify-center">
+<h1 class="font-display-lg text-display-lg text-on-primary mb-4 opacity-0 animate-fade-in-up delay-100">My Certifications</h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-2xl opacity-0 animate-fade-in-up delay-200">A curated collection of professional credentials demonstrating expertise across data analytics, digital marketing, and artificial intelligence.</p>
+</div>
+</header>
+<!-- Filters Section -->
+<section class="w-full max-w-container-max mb-12">
+<div class="flex overflow-x-auto pb-4 gap-4 scrollbar-hide items-center justify-start md:justify-center w-full">
+<button class="bg-secondary-container text-on-primary-fixed px-6 py-2 rounded-full font-label-md text-label-md whitespace-nowrap shadow-sm hover:shadow-md transition-all opacity-0 animate-fade-in-up delay-100 hover:scale-105 active:scale-95">All</button>
+<button class="bg-transparent border border-primary-container text-primary-container hover:bg-primary-container/5 hover:scale-105 px-6 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-all opacity-0 animate-fade-in-up delay-200 active:scale-95">Data Analytics</button>
+<button class="bg-transparent border border-primary-container text-primary-container hover:bg-primary-container/5 hover:scale-105 px-6 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-all opacity-0 animate-fade-in-up delay-300 active:scale-95">Digital Marketing</button>
+<button class="bg-transparent border border-primary-container text-primary-container hover:bg-primary-container/5 hover:scale-105 px-6 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-all opacity-0 animate-fade-in-up delay-400 active:scale-95">AI</button>
+</div>
+</section>
+<!-- Grid Section -->
+<section class="w-full max-w-container-max grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cards-container">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-[1px] border-surface-variant overflow-hidden shadow-[0_4px_24px_rgba(20,33,61,0.05)] hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(20,33,61,0.15)] hover:scale-[1.02] transition-all duration-300 flex flex-col group animate-on-scroll">
+<div class="h-48 w-full bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A clean, modern certificate layout featuring a minimalist geometric design with professional typography. The certificate includes a distinct Google logo watermark. The color palette utilizes soft whites and subtle Google brand colors (blue, red, yellow, green) arranged in an abstract, highly professional editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzLrRATCW0VzrvuTCbQzlxJNDq_RvbERmCmaIQdYMM2CKs33tnMI3ajU247-Qv7_dEs-7_Gqyg6H7HpQVLdANtUpeOtuwQbWeWqXrUH6yoEZKCq3J16UeExu2izNpyfG_YjdpPXL5luTzAxzS535fVuMJbtpXI3Fi5zeTDz32plwwcjECebq9d4kAv-m5J8R8YHH750lXXeZFx6xXavjKVM1PHHNxQsi2zF2nyQVd9NaS8CogsNLzE"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight">Google Data Analytics Professional Certificate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Google Coursera</p>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-surface-variant/50">
+<button class="border border-primary-container text-primary-container group-hover:bg-primary-container/10 px-4 py-1.5 rounded-full font-label-sm text-label-sm transition-colors duration-300">View Details</button>
+<button class="bg-secondary-container/20 text-secondary hover:bg-secondary-container hover:text-on-primary-fixed w-10 h-10 rounded-full flex items-center justify-center transition-colors group-hover:animate-bounce-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-[1px] border-surface-variant overflow-hidden shadow-[0_4px_24px_rgba(20,33,61,0.05)] hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(20,33,61,0.15)] hover:scale-[1.02] transition-all duration-300 flex flex-col group animate-on-scroll delay-100">
+<div class="h-48 w-full bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="An elegant, modern certificate of completion design. It features a stark white background with sharp, minimal black typography and a distinct deep blue structural accent shape. The aesthetic represents high-end corporate training, emphasizing precision, calm professionalism, and authoritative data-driven results." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxY2yiWWLTRz6vC-UeZ8O4PwApFmuWmJEmU9OVIcSUa_E5XxBUrzrWDI4vsWGUsTaHuLSr8yPNiP60bWgljdJcpDv1spXbmQ2-yUjtbq1BOMp7drZ8Q8UcVegmeI5QoczfpHn_U9W4qs9dPtmn69S8t9_kubj8TKJ7t57PsCrrhJx5w69AZ7PUMnJ4Ac18HVaqu_2DMSpAJurBA2Rj3tTTwswhMbpC6jsLvUaaZX6aeTWdDxR9FPrJ"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight">Advanced Digital Marketing Strategy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">HubSpot Academy</p>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-surface-variant/50">
+<button class="border border-primary-container text-primary-container group-hover:bg-primary-container/10 px-4 py-1.5 rounded-full font-label-sm text-label-sm transition-colors duration-300">View Details</button>
+<button class="bg-secondary-container/20 text-secondary hover:bg-secondary-container hover:text-on-primary-fixed w-10 h-10 rounded-full flex items-center justify-center transition-colors group-hover:animate-bounce-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-[1px] border-surface-variant overflow-hidden shadow-[0_4px_24px_rgba(20,33,61,0.05)] hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(20,33,61,0.15)] hover:scale-[1.02] transition-all duration-300 flex flex-col group animate-on-scroll delay-200">
+<div class="h-48 w-full bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A sophisticated certificate representing advanced AI concepts. The design uses a deep ink-navy background with subtle, glowing golden geometric lines resembling neural networks. The typography is modern and sans-serif, creating a sense of technological advancement grounded in professional editorial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANUTigLBEh-cb_6va9GgRfJenP0jhPboMaOtpOzeKerz-aTdzJ6lIApa6UEOaUj6t6N9ag9BtbP4tbReJUX8jlZg1E9unuYnynFf-cj8YFmzCEq0NLGSV-7UVByumPNjWjnZuMqxUFwOndYk-aI7nyUkAVxXmLRrjHu-NjCK695Mrw20qlSYeoEY7BEKU6KeLWVjenIGGVV7Qfb-RrwJnRr1V8cRGJL6tRke1H3tdvi1zD5ZRXr3_i"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight">AI for Business Leaders Specialization</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">DeepLearning.AI</p>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-surface-variant/50">
+<button class="border border-primary-container text-primary-container group-hover:bg-primary-container/10 px-4 py-1.5 rounded-full font-label-sm text-label-sm transition-colors duration-300">View Details</button>
+<button class="bg-secondary-container/20 text-secondary hover:bg-secondary-container hover:text-on-primary-fixed w-10 h-10 rounded-full flex items-center justify-center transition-colors group-hover:animate-bounce-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-[1px] border-surface-variant overflow-hidden shadow-[0_4px_24px_rgba(20,33,61,0.05)] hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(20,33,61,0.15)] hover:scale-[1.02] transition-all duration-300 flex flex-col group animate-on-scroll delay-300">
+<div class="h-48 w-full bg-surface-container overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" data-alt="A pristine, highly detailed professional certification document. The visual features an off-white background with subtle tactile textures, elegant dark typography, and a prominent seal indicating data science proficiency. The lighting is soft and studio-quality, emphasizing the paper's premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVsJnTmBnL09vzOR-b-E8GHDfN0U2ylrRFuL7eHkgUjMgeysS8nJwEUHIWzbEdKx7H4kcF4ywjQRlekTByGmF_D8S-TMOTGRT9jcaC_lChfN8qhhdvs5V2VmO4KOPTwh6PUNF7qTrZ8G6mBog1Z1Thz327-Dl_4lWVR9nAE3rLmYrTl8BTmmeq46NtrKcTO9fI_YIK_9D5nk9XFsWYuKLCYYM4sEzn8puyGVgxuNLoxB7xD_aFMHtk"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight">IBM Data Science Professional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">IBM / Coursera</p>
+<div class="flex justify-between items-center mt-auto pt-4 border-t border-surface-variant/50">
+<button class="border border-primary-container text-primary-container group-hover:bg-primary-container/10 px-4 py-1.5 rounded-full font-label-sm text-label-sm transition-colors duration-300">View Details</button>
+<button class="bg-secondary-container/20 text-secondary hover:bg-secondary-container hover:text-on-primary-fixed w-10 h-10 rounded-full flex items-center justify-center transition-colors group-hover:animate-bounce-subtle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-primary w-full py-16 flex flex-col md:flex-row justify-between items-center px-margin-desktop mt-auto border-t-[0.5px] border-white/10 shadow-[0_-4px_24px_rgba(20,33,61,0.05)]">
+<div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md font-bold text-surface">Portfolio.Analytics</span>
+<span class="text-on-primary-container font-body-md text-body-md text-sm">© 2024 Digital &amp; Data Analytics Portfolio. Built with Precision.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-primary-container hover:text-secondary transition-all font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-primary-container hover:text-secondary transition-all font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-primary-container hover:text-secondary transition-all font-body-md text-body-md" href="#">LinkedIn</a>
+<a class="text-on-primary-container hover:text-secondary transition-all font-body-md text-body-md" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body></html>
