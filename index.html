@@ -5,6 +5,126 @@
     <!-- Responsive Meta Tag -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:image" content="./assets/images/Logo.png">
+
+    <style>
+    .glow-amber:hover {
+        box-shadow: 0 4px 20px rgba(255, 165, 21, 0.4);
+    }
+    
+    /* Motion & Animations */
+    @media (prefers-reduced-motion: no-preference) {
+        .orbit-icon {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            will-change: transform;
+            z-index: 10;
+        }
+        .icon-1 { top: 15%; left: -5%; }
+        .icon-2 { bottom: 25%; right: -10%; }
+        .icon-3 { bottom: 10%; left: 10%; }
+        .icon-4 { top: 20%; right: 5%; }
+        
+        .orbit-icon.icon-1 { animation: float-1 7s ease-in-out infinite; }
+        .orbit-icon.icon-2 { animation: float-2 6.5s ease-in-out infinite; }
+        .orbit-icon.icon-3 { animation: float-3 8s ease-in-out infinite; }
+        .orbit-icon.icon-4 { animation: float-4 7.5s ease-in-out infinite; }
+        
+        @keyframes float-1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        @keyframes float-2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(15deg); }
+        }
+        @keyframes float-3 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-10deg); }
+        }
+        @keyframes float-4 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-15deg); }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            will-change: transform, opacity;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: transform, opacity;
+        }
+        
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .gradient-bg-hero {
+        background: linear-gradient(135deg, #14213d 0%, #000a24 100%);
+    }
+    
+    .hero-cutout {
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    }
+</style>
+
+    <!-- Tailwind CDN & Fonts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+
+<!-- Custom Design System Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#000a24",
+                    "on-primary": "#ffffff",
+                    "secondary": "#855300",
+                    "secondary-container": "#ffa515",
+                    "on-secondary-container": "#684000",
+                    "surface-variant": "#e3e3de",
+                    "on-surface-variant": "#45464d",
+                },
+                fontFamily: {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Outfit"],
+                }
+            }
+        }
+    }
+</script>
     
     <!-- Schema.org Person JSON-LD -->
     <script type="application/ld+json">
@@ -34,236 +154,462 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header class="v2-hero">
-    <nav class="nav-pill">
-      <a href="./index.html" class="active">Home</a>
-      <a href="./pages/certificates.html">Certificates</a>
-      <a href="./pages/contact.html">Contact</a>
-    </nav>
-
-    <div class="v2-hero-interactive-zone" id="heroTiltZone">
-      <!-- Independent Orbit Tracks -->
-      <div class="v2-orbit-track" style="--track-size: 140%; --orbit-speed: 20s; --start-angle: 0deg;">
-        <div class="v2-orbit-icon"><i class="fa-brands fa-python"></i></div>
-      </div>
-      
-      <div class="v2-orbit-track" style="--track-size: 110%; --orbit-speed: 15s; --start-angle: 90deg; --orbit-direction: reverse;">
-        <div class="v2-orbit-icon"><i class="fa-solid fa-database"></i></div> <!-- SQL -->
-      </div>
-      
-      <div class="v2-orbit-track" style="--track-size: 160%; --orbit-speed: 25s; --start-angle: 180deg;">
-        <div class="v2-orbit-icon"><i class="fa-solid fa-chart-column"></i></div> <!-- Power BI -->
-      </div>
-      
-      <div class="v2-orbit-track" style="--track-size: 125%; --orbit-speed: 18s; --start-angle: 270deg; --orbit-direction: reverse;">
-        <div class="v2-orbit-icon"><i class="fa-solid fa-robot"></i></div> <!-- GenAI -->
-      </div>
-
-      <!-- The photo itself -->
-      <div class="v2-hero-avatar-wrapper" id="heroAvatarWrapper">
-        <img src="./assets/images/MuhammadKama.jpeg" alt="Muhammad Kamal" class="v2-hero-avatar">
-      </div>
-    </div>
-
-    <h1 class="scroll-effect slide-in-left">Muhammad Kamal</h1>
-    <p class="hero-subtext scroll-effect slide-in-right">Co-Founder @TriSyn Media | Digital Marketing × Data Analytics | Python · Power BI · SQL · GenAI</p>
-  </header>
-
-  <section id="selected-work">
-    <h2 class="scroll-effect slide-up">Selected Work</h2>
-    
-    <div class="selected-work-grid">
-      <!-- Case Study 1: Ascend AI -->
-      <article class="card-base scroll-effect slide-up" style="display: flex; flex-direction: column;">
-        <h3>Ascend AI</h3>
-        <ul class="v2-case-study-list" style="flex-grow: 1;">
-          <li><strong>Problem:</strong> Students miss scholarship opportunities because finding and tracking them is manual, scattered, and time-consuming</li>
-          <li><strong>Role:</strong> Built solo, end-to-end, in 48 hours</li>
-          <li><strong>Tools:</strong> Python, Groq LLM API (initial build), later migrated to Gemini</li>
-        </ul>
-        <div class="v2-case-study-outcome">
-          <span class="badge-positive">Outcome: Shipped a working agentic scholarship-hunting assistant at the HEC GenAI Hackathon, documented publicly via a LinkedIn carousel</span>
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
+    <div class="bg-white/80 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-6 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
+        
+        <!-- Navigation Links -->
+        <div class="flex items-center gap-6">
+            <a class="font-body-md text-body-md text-primary font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer" href="index.html">
+                Home
+            </a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="./pages/certificates.html">
+                Certificates
+            </a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="./pages/contact.html">
+                Contact
+            </a>
         </div>
-      </article>
 
-      <!-- Case Study 2: TriSyn Media -->
-      <article class="card-base scroll-effect slide-up" style="display: flex; flex-direction: column;">
-        <h3>TriSyn Media</h3>
-        <ul class="v2-case-study-list" style="flex-grow: 1;">
-          <li><strong>Problem:</strong> Local and SME businesses overspend on influencer-driven hype marketing instead of building durable, data-backed customer retention</li>
-          <li><strong>Role:</strong> Co-Founder & Lead Strategist — led positioning and strategy, with Aneeq Ahmad on business development and Kinza Irshad on creative/web/ad strategy</li>
-          <li><strong>Tools:</strong> Vanilla HTML, Tailwind CSS, vanilla JavaScript — designed in Stitch, built and deployed the full agency site (trisynmedia.com)</li>
-        </ul>
-        <div class="v2-case-study-outcome">
-          <span class="badge-positive">Outcome: Successfully launched the complete agency platform and secured initial SME client partnerships focused on data-driven retention.</span>
-        </div>
-      </article>
+        <!-- Hire Me Button -->
+        <button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber">
+            Hire Me
+        </button>
+
     </div>
-  </section>
+</nav>
+<header class="gradient-bg-hero min-h-screen flex items-center px-margin-mobile md:px-margin-desktop pt-32 pb-stack-lg relative overflow-hidden" id="home">
+<!-- Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_14 class="absolute inset-0 w-full h-full -z-10" -->
+<div class="absolute inset-0 w-full h-full -z-10" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_14" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_14');
 
-  <section class="about">
-    <h2 class="scroll-effect slide-up">About Me</h2>
- <p class="intro-text long-text scroll-effect slide-up">
-  A Bachelor of Business Administration student at the University of Sargodha and a Startup Co-Founder who bridges the gap between management strategy and technical data analytics. He demonstrates strong proficiency in Python, SQL, and Power BI, applying data-driven insights to solve complex, real-world business problems. He remains dedicated to building digital communities and implementing automation strategies that drive organizational growth and innovation.
-</p>
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
 
-<p class="intro-text short-text scroll-effect slide-up">
-  A Business Administration student and Startup Co-Founder bridging management strategy with technical data analytics. He leverages Python and Power BI to solve business problems and implement growth-focused automation.
-</p>
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
 
-  </section>
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
 
-<section class="skills">
-  <h2 class="scroll-effect slide-up">Technical & Strategic Skills</h2>
-
-  <div class="skill-bars">
-    <div class="skill scroll-effect slide-up">
-      <span>Data Analytics (Python, SQL, Power BI)</span>
-      <div class="bar"><div class="level data-analytics" style="width: 85%;"></div></div>
-    </div>
-
-    <div class="skill scroll-effect slide-up">
-      <span>Business Strategy & Automation</span>
-      <div class="bar"><div class="level strategy-automation" style="width: 90%;"></div></div>
-    </div>
-
-    <div class="skill scroll-effect slide-up">
-      <span>Digital Marketing & SEO</span>
-      <div class="bar"><div class="level digital-marketing" style="width: 80%;"></div></div>
-    </div>
-
-    <div class="skill scroll-effect slide-up">
-      <span>Frontend Dev & UI/UX Design</span>
-      <div class="bar"><div class="level frontend-design" style="width: 75%;"></div></div>
-    </div>
-
-    <div class="skill scroll-effect slide-up">
-      <span>Financial Analysis & Bookkeeping</span>
-      <div class="bar"><div class="level finance-bookkeeping" style="width: 85%;"></div></div>
-    </div>
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
     
-    <div class="skill scroll-effect slide-up">
-      <span>Technical Research & Academic Writing</span>
-      <div class="bar"><div class="level academic-writing" style="width: 88%;"></div></div>
-    </div>
-  </div>
+    // Restoring the deep brand blues
+    vec3 color1 = vec3(0.078, 0.129, 0.239); // Brighter brand blue #14213d
+    vec3 color2 = vec3(0.047, 0.078, 0.145); // Standard brand blue
+    vec3 color3 = vec3(0.031, 0.047, 0.086); // Deepest navy #0c1425
+    vec3 accent = vec3(0.98, 0.639, 0.067);  // Amber #fca311
+    
+    // Create a rich, multi-stop gradient base
+    float mixVal = uv.y * 0.7 + uv.x * 0.3 + sin(u_time * 0.1) * 0.05;
+    vec3 base = mix(color3, color2, smoothstep(0.0, 0.6, mixVal));
+    base = mix(base, color1, smoothstep(0.5, 1.0, mixVal));
+    
+    // "Data flow" particles - subtle and refined
+    float flowSpeed = u_time * 0.2;
+    float n = hash(floor(uv * 60.0 + vec2(0.0, flowSpeed)));
+    float spark = pow(n, 40.0) * step(0.98, fract(uv.y * 12.0 + u_time * 0.1));
+    
+    // Mouse interaction - amber glow
+    float dist = distance(uv, mouse);
+    float mouseGlow = smoothstep(0.35, 0.0, dist) * 0.25;
+    
+    // Subtle pulse for the sparks
+    float pulse = 0.6 + 0.4 * sin(u_time * 1.5 + uv.x * 5.0);
+    
+    vec3 finalColor = base + (spark * accent * 0.4 * pulse) + (mouseGlow * accent);
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_14 -->
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10">
+<div class="lg:col-span-7 flex flex-col justify-center text-left z-20 order-2 lg:order-1 pt-12 lg:pt-0">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-6 leading-tight fade-in-up delay-100">
+                    Muhammad <br class="hidden lg:block"/>Kamal
+                </h1>
+<p class="font-body-lg text-body-lg text-inverse-primary max-w-xl tracking-wide text-xl md:text-2xl mb-8 border-l-4 border-secondary-container pl-6 fade-in-up delay-200">
+                    Co-Founder @TriSyn Media | Digital Marketing × Data Analytics | Python · Power BI · SQL · GenAI
+                </p>
+<div class="flex gap-4 fade-in-up delay-300">
+<button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-8 py-4 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber shadow-lg">
+                        View My Work
+                    </button>
+<button class="font-body-md text-body-md bg-white/10 text-on-primary border border-white/20 backdrop-blur-sm font-bold rounded-full px-8 py-4 hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer active:scale-95">
+                        Contact Me
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative h-[500px] lg:h-[700px] w-full order-1 lg:order-2 flex justify-center lg:justify-end items-end">
+<div class="absolute inset-0 z-0">
+<div class="orbit-icon icon-1"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span></div>
+<div class="orbit-icon icon-2"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">database</span></div>
+<div class="orbit-icon icon-3"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span></div>
+<div class="orbit-icon icon-4"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span></div>
+</div>
+<img class="hero-cutout relative z-10 max-h-full object-contain object-bottom scale-110 lg:scale-125 transform translate-y-8 lg:translate-x-8" alt="Muhammad Kamal" src="./assets/images/MuhammadKama.jpeg"/>
+</div>
+</div>
+<!-- Ambient background glow -->
+<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-secondary-container/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-fixed/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/4 translate-y-1/4 z-0"></div>
+</header>
+
+<!-- Selected Work Section -->
+<section class="py-stack-xl bg-surface-container-low px-margin-mobile md:px-margin-desktop" id="work">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md border-b border-outline-variant/30 pb-4">
+                Selected Work
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Ascend AI</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow space-y-2">
+    <p><strong>Problem:</strong> Students miss scholarship opportunities because finding and tracking them is manual, scattered, and time-consuming</p>
+    <p><strong>Role:</strong> Built solo, end-to-end, in 48 hours</p>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Python • Groq LLM API • Gemini</span>
+<div class="bg-on-tertiary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
+    <span class="material-symbols-outlined text-[16px]">stars</span>
+    <span>Outcome: Shipped a working agentic scholarship-hunting assistant at the HEC GenAI Hackathon, documented publicly via a LinkedIn carousel</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll delay-100">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">TriSyn Media</h3>
+<div class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow space-y-2">
+    <p><strong>Problem:</strong> Local and SME businesses overspend on influencer-driven hype marketing instead of building durable, data-backed customer retention</p>
+    <p><strong>Role:</strong> Co-Founder & Lead Strategist — led positioning and strategy, with Aneeq Ahmad on business development and Kinza Irshad on creative/web/ad strategy</p>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Vanilla HTML • Tailwind CSS • Vanilla JavaScript</span>
+<div class="bg-on-tertiary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
+    <span class="material-symbols-outlined text-[16px]">trending_up</span>
+    <span>Outcome: Successfully launched the complete agency platform and secured initial SME client partnerships focused on data-driven retention.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-  <div class="skill-icons scroll-effect slide-up">
-    <img src="assets/icons/Digital-Marketing.webp" alt="Digital Marketing" title="Digital Marketing">
-    <img src="assets/icons/Excel-removebg.webp" alt="Excel" title="Excel">
-    <img src="assets/icons/Canva-removebg.webp" alt="Canva" title="Canva">
-    <img src="assets/icons/Capcut-removebg.webp" alt="Capcut" title="Capcut">
-    <img src="assets/icons/HTML-removebg.webp" alt="HTML" title="HTML">
-    <img src="assets/icons/CSS-removebg.webp" alt="CSS" title="CSS">
-    <img src="assets/icons/JavaScript-removebg.webp" alt="JavaScript" title="JavaScript">
-    <img src="assets/icons/Python-removebg.webp" alt="Python" title="Python">
-    <!-- <img src="assets/icons/MySQL-removebg.png" alt="MySQL" title="MySQL"> -->
-  </div>
+<!-- About Section -->
+<section class="py-stack-xl bg-background px-margin-mobile md:px-margin-desktop" id="about">
+<div class="max-w-3xl mx-auto text-center reveal-on-scroll">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-4 intro-text long-text">
+                A Bachelor of Business Administration student at the University of Sargodha and a Startup Co-Founder who bridges the gap between management strategy and technical data analytics. He demonstrates strong proficiency in Python, SQL, and Power BI, applying data-driven insights to solve complex, real-world business problems. He remains dedicated to building digital communities and implementing automation strategies that drive organizational growth and innovation.
+</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed intro-text short-text">
+                A Business Administration student and Startup Co-Founder bridging management strategy with technical data analytics. He leverages Python and Power BI to solve business problems and implement growth-focused automation.
+</p>
+</div>
+</section>
 
-<section class="timeline">
-  <h2 class="scroll-effect fade-in">Experience & Education</h2>
+<!-- Skills Section -->
+<section class="py-stack-xl bg-surface-container-low px-margin-mobile md:px-margin-desktop" id="skills">
+<div class="max-w-container-max mx-auto reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md border-b border-outline-variant/30 pb-4 text-center md:text-left">
+                Technical & Strategic Skills
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mb-stack-lg">
+<!-- Skill 1 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Data Analytics (Python, SQL, Power BI)</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Skill 2 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Business Strategy & Automation</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">90%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+<!-- Skill 3 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Digital Marketing & SEO</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">80%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+<!-- Skill 4 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Frontend Dev & UI/UX Design</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">75%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Skill 5 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Financial Analysis & Bookkeeping</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Skill 6 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Technical Research & Academic Writing</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">88%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+<!-- Tool Icons -->
+<div class="flex flex-wrap justify-center gap-8 opacity-70 mt-12 skill-icons-upgraded">
+    <img src="assets/icons/Digital-Marketing.webp" alt="Digital Marketing" title="Digital Marketing" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/Excel-removebg.webp" alt="Excel" title="Excel" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/Canva-removebg.webp" alt="Canva" title="Canva" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/Capcut-removebg.webp" alt="Capcut" title="Capcut" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/HTML-removebg.webp" alt="HTML" title="HTML" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/CSS-removebg.webp" alt="CSS" title="CSS" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/JavaScript-removebg.webp" alt="JavaScript" title="JavaScript" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+    <img src="assets/icons/Python-removebg.webp" alt="Python" title="Python" class="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300">
+</div>
+</div>
+</section>
 
-  <div class="timeline-container">
-    <div class="central-line"></div>
+<!-- Experience Section -->
+<section class="py-stack-xl bg-background px-margin-mobile md:px-margin-desktop" id="experience">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md text-center">
+                Experience & Education
+            </h2>
+<div class="relative border-l-2 border-surface-tint pl-8 ml-4 md:ml-12 space-y-12">
+    <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pt-4">Professional Experience</div>
 
-    <div class="timeline-divider">Professional Experience</div>
-
-    <div class="timeline-item left scroll-effect slide-in-left">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Co-Founder & Lead Strategist</h3>
-        <span class="company">TriSyn Media</span>
-        <span class="date">Nov 2025 - Present</span>
-        <p>Leading a team of three to deliver data-driven brand strategies, web design, and AI-powered automation solutions.</p>
-      </div>
+    <!-- Timeline Item 1 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Co-Founder & Lead Strategist</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">TriSyn Media</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Nov 2025 - Present</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Leading a team of three to deliver data-driven brand strategies, web design, and AI-powered automation solutions.</p>
+    </div>
     </div>
 
-    <div class="timeline-item right scroll-effect slide-in-right">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Social Media Manager Intern</h3>
-        <span class="company">Public Administration Association of Pakistan</span>
-        <span class="date">Aug 2025 - Present</span>
-        <p>Spearheaded LinkedIn strategy, growing community to 1,000+ organic followers via 160+ strategic posts and monthly analytics.</p>
-      </div>
+    <!-- Timeline Item 2 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Social Media Manager Intern</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">Public Administration Association of Pakistan</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Aug 2025 - Present</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Spearheaded LinkedIn strategy, growing community to 1,000+ organic followers via 160+ strategic posts and monthly analytics.</p>
+    </div>
     </div>
 
-    <div class="timeline-divider">Volunteer Leadership</div>
+    <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pt-4">Volunteer Leadership</div>
 
-    <div class="timeline-item left scroll-effect slide-in-left">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>SMM / Head</h3>
-        <span class="company">Media Society – MFKNBS, University of Sargodha</span>
-        <span class="date">Dec 2025 - Present</span>
-        <p>Directing a team of 8, designing all visual assets, and acting as the final quality gatekeeper for all published content.</p>
-      </div>
+    <!-- Timeline Item 3 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">SMM / Head</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">Media Society – MFKNBS, University of Sargodha</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Dec 2025 - Present</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Directing a team of 8, designing all visual assets, and acting as the final quality gatekeeper for all published content.</p>
+    </div>
     </div>
 
-    <div class="timeline-item right scroll-effect slide-in-right">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Ambassador</h3>
-        <span class="company">Bano Qabil, Alkhidmat Foundation</span>
-        <span class="date">Aug 2025 - Jan 2026</span>
-        <p>Top-performing volunteer; executed awareness campaigns for 10,000+ students and evaluated 2,000+ exam papers.</p>
-      </div>
+    <!-- Timeline Item 4 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Ambassador</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">Bano Qabil, Alkhidmat Foundation</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Aug 2025 - Jan 2026</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Top-performing volunteer; executed awareness campaigns for 10,000+ students and evaluated 2,000+ exam papers.</p>
+    </div>
     </div>
 
-    <div class="timeline-item left scroll-effect slide-in-left">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Volunteer</h3>
-        <span class="company">Lincoln Corner, University of Sargodha</span>
-        <span class="date">Apr 2025 - March 2026</span>
-        <p>Assisting in planning and managing 50+ educational events, engaging with over 8,000 visitors.</p>
-      </div>
+    <!-- Timeline Item 5 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Volunteer</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">Lincoln Corner, University of Sargodha</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Apr 2025 - March 2026</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Assisting in planning and managing 50+ educational events, engaging with over 8,000 visitors.</p>
+    </div>
     </div>
 
-    <div class="timeline-divider">Event Management</div>
+    <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pt-4">Event Management</div>
 
-    <div class="timeline-item right scroll-effect slide-in-right">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Organizer | 3rd ICSB-2025</h3>
-        <span class="company">MFKNBS, University of Sargodha</span>
-        <span class="date">Dec 17-19, 2025</span>
-        <p>Acted as a liaison between sponsors, vendors, and faculty for the International Conference on Sustainable Business Development.</p>
-      </div>
+    <!-- Timeline Item 6 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Organizer | 3rd ICSB-2025</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">MFKNBS, University of Sargodha</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Dec 17-19, 2025</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Acted as a liaison between sponsors, vendors, and faculty for the International Conference on Sustainable Business Development.</p>
+    </div>
     </div>
 
-    <div class="timeline-item left scroll-effect slide-in-left">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Event Management | SEE Pakistan</h3>
-        <span class="company">Waheed Wain Incubation Center, UoS</span>
-        <span class="date">July 10, 2025</span>
-        <p>Supported the regional round organization and coordinated with 100+ student-led startups.</p>
-      </div>
+    <!-- Timeline Item 7 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Event Management | SEE Pakistan</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">Waheed Wain Incubation Center, UoS</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">July 10, 2025</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Supported the regional round organization and coordinated with 100+ student-led startups.</p>
+    </div>
     </div>
 
-    <div class="timeline-item right scroll-effect slide-in-right">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Liaison | 2nd Annual CEO Forum</h3>
-        <span class="company">MFKNBS, University of Sargodha</span>
-        <span class="date">Apr 30, 2025</span>
-        <p>Managed startup table allotments and resolved on-site issues for 60+ startups and faculty guests.</p>
-      </div>
+    <!-- Timeline Item 8 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Liaison | 2nd Annual CEO Forum</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">MFKNBS, University of Sargodha</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">Apr 30, 2025</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Managed startup table allotments and resolved on-site issues for 60+ startups and faculty guests.</p>
+    </div>
     </div>
 
-    <div class="timeline-divider">Education</div>
-    <div class="timeline-item education-special scroll-effect fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Bachelor of Business Administration (BBA)</h3>
-        <span class="company">University of Sargodha</span>
-        <span class="date">2023 - 2027</span>
-        <p>Current CGPA: 3.77/4.00 | Focused on Business Development and Digital Strategy</p>
-      </div>
+    <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pt-4">Education</div>
+    <!-- Timeline Item 9 -->
+    <div class="relative group reveal-on-scroll">
+    <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-secondary-container shadow-[0_0_10px_rgba(255,165,21,0.6)] group-hover:scale-125 transition-transform duration-300"></div>
+    <div class="bg-surface p-6 rounded-xl border-[0.5px] border-outline-variant shadow-sm group-hover:shadow-md transition-shadow">
+    <h3 class="font-headline-md text-headline-md text-on-background">Bachelor of Business Administration (BBA)</h3>
+    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-4 mt-1">
+    <span class="font-label-md text-label-md text-surface-tint font-bold">University of Sargodha</span>
+    <span class="hidden md:inline text-outline-variant">•</span>
+    <span class="font-label-sm text-label-sm text-outline uppercase">2023 - 2027</span>
     </div>
-  </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Current CGPA: 3.77/4.00 | Focused on Business Development and Digital Strategy</p>
+    </div>
+    </div>
+
+</div>
+</div>
 </section>
 
 <section class="certifications">
@@ -343,14 +689,18 @@
 
 </section>
 
-<section class="pdf-projects">
-  <h2 class="scroll-effect fade-in">📑 Resources</h2>
-  <p class="pdf-intro scroll-effect fade-in">
+<!-- Resources Section -->
+<section class="py-stack-xl bg-surface-container-low px-margin-mobile md:px-margin-desktop" id="resources">
+<div class="max-w-container-max mx-auto text-center reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md">
+                📑 Resources
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 text-center max-w-2xl mx-auto">
     Some of my written projects, reports, and creative documents available for download.
-  </p>
-
-  <div class="pdf-grid" id="pdf-container">
-    </div>
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="pdf-container">
+</div>
+</div>
 </section>
 
 <footer class="v2-footer">

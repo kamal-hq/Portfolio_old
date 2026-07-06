@@ -7,13 +7,16 @@ const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+      entry.target.classList.add('is-visible'); // Added for Stitch compatibility
       obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
 // target elements with .scroll-effect class
 document.querySelectorAll('.scroll-effect').forEach(el => observer.observe(el));
+// target elements with .reveal-on-scroll class
+document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
 
 /* ============================ */
