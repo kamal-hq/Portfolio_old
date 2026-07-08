@@ -89,8 +89,7 @@
 </style>
 
     <!-- Tailwind CDN & Fonts -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com/3.4.1"></script>
 
 <!-- Custom Design System Config -->
 <script id="tailwind-config">
@@ -115,6 +114,8 @@
         }
     }
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
     
     <!-- Schema.org Person JSON-LD -->
     <script type="application/ld+json">
@@ -145,7 +146,7 @@
 </head>
 <body>
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
-    <div class="bg-white/80 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-6 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
+    <div class="bg-white/80 backdrop-blur-xl rounded-b-full mx-auto w-fit px-6 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
         
         <!-- Navigation Links -->
         <div class="flex items-center gap-6">
@@ -162,12 +163,12 @@
 
         <!-- Hire Me Button -->
         <button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber">
-            Hire Me
+            Let's Talk
         </button>
 
     </div>
 </nav>
-<header class="gradient-bg-hero min-h-screen flex items-center px-margin-mobile md:px-margin-desktop pt-32 pb-stack-lg relative overflow-hidden" id="home">
+<header class="gradient-bg-hero h-auto min-h-[650px] flex items-center px-8 md:px-16 lg:px-24 pt-20 pb-16 relative overflow-hidden" id="home">
 <!-- Shader Background -->
 <!-- STITCH_SHADER_START:ANIMATION_14 class="absolute inset-0 w-full h-full -z-10" -->
 <div class="absolute inset-0 w-full h-full -z-10" style="display:block;">
@@ -290,12 +291,12 @@ void main() {
 </script>
 </div>
 <!-- STITCH_SHADER_END:ANIMATION_14 -->
-<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10">
-<div class="lg:col-span-7 flex flex-col justify-center text-left z-20 order-2 lg:order-1 pt-12 lg:pt-0">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-6 leading-tight fade-in-up delay-100">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center z-10">
+<div class="flex flex-col justify-center text-left z-20 order-2 lg:order-1 pt-12 lg:pt-0">
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-on-primary mb-6 leading-tight fade-in-up delay-100">
                     Muhammad <br class="hidden lg:block"/>Kamal
                 </h1>
-<p class="font-body-lg text-body-lg text-inverse-primary max-w-xl tracking-wide text-xl md:text-2xl mb-8 border-l-4 border-secondary-container pl-6 fade-in-up delay-200">
+<p class="font-body-lg text-body-lg text-white/90 max-w-xl tracking-wide text-xl md:text-2xl mb-8 border-l-4 border-secondary-container pl-6 fade-in-up delay-200">
                     Co-Founder @TriSyn Media | Digital Marketing × Data Analytics | Python · Power BI · SQL · GenAI
                 </p>
 <div class="flex gap-4 fade-in-up delay-300">
@@ -307,14 +308,14 @@ void main() {
                     </button>
 </div>
 </div>
-<div class="lg:col-span-5 relative h-[500px] lg:h-[700px] w-full order-1 lg:order-2 flex justify-center lg:justify-end items-end">
+<div class="relative h-[400px] lg:h-[500px] w-full order-1 lg:order-2 flex justify-center lg:justify-end items-center">
 <div class="absolute inset-0 z-0">
 <div class="orbit-icon icon-1"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span></div>
 <div class="orbit-icon icon-2"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">database</span></div>
 <div class="orbit-icon icon-3"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span></div>
 <div class="orbit-icon icon-4"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span></div>
 </div>
-<img class="hero-cutout relative z-10 max-h-full object-contain object-bottom scale-110 lg:scale-125 transform translate-y-8 lg:translate-x-8" alt="Muhammad Kamal" src="./assets/images/MuhammadKama.jpeg"/>
+<img class="hero-cutout relative z-10 max-h-full object-contain object-bottom scale-110 lg:scale-125 transform translate-y-8" alt="Muhammad Kamal" src="./assets/images/1.png"/>
 </div>
 </div>
 <!-- Ambient background glow -->
@@ -328,32 +329,32 @@ void main() {
 <h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md border-b border-outline-variant/30 pb-4">
                 Selected Work
             </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Card 1 -->
-<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll">
-<h3 class="font-headline-md text-headline-md text-on-background mb-3">Ascend AI</h3>
+<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant border-l-4 border-secondary shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Ascend AI</h3>
 <div class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow space-y-2">
     <p><strong>Problem:</strong> Students miss scholarship opportunities because finding and tracking them is manual, scattered, and time-consuming</p>
     <p><strong>Role:</strong> Built solo, end-to-end, in 48 hours</p>
 </div>
 <div class="mt-auto flex flex-col gap-4">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Python • Groq LLM API • Gemini</span>
-<div class="bg-on-tertiary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
+<div class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
     <span class="material-symbols-outlined text-[16px]">stars</span>
     <span>Outcome: Shipped a working agentic scholarship-hunting assistant at the HEC GenAI Hackathon, documented publicly via a LinkedIn carousel</span>
 </div>
 </div>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll delay-100">
-<h3 class="font-headline-md text-headline-md text-on-background mb-3">TriSyn Media</h3>
+<div class="bg-surface rounded-xl p-8 border-[0.5px] border-outline-variant border-l-4 border-secondary shadow-sm hover:shadow-xl hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,165,21,0.15)] transition-all duration-300 flex flex-col group reveal-on-scroll delay-100">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">TriSyn Media</h3>
 <div class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow space-y-2">
     <p><strong>Problem:</strong> Local and SME businesses overspend on influencer-driven hype marketing instead of building durable, data-backed customer retention</p>
     <p><strong>Role:</strong> Co-Founder & Lead Strategist — led positioning and strategy, with Aneeq Ahmad on business development and Kinza Irshad on creative/web/ad strategy</p>
 </div>
 <div class="mt-auto flex flex-col gap-4">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Vanilla HTML • Tailwind CSS • Vanilla JavaScript</span>
-<div class="bg-on-tertiary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
+<div class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-sm leading-tight">
     <span class="material-symbols-outlined text-[16px]">trending_up</span>
     <span>Outcome: Successfully launched the complete agency platform and secured initial SME client partnerships focused on data-driven retention.</span>
 </div>
@@ -390,7 +391,7 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">85%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 85%;"></div>
+<div class="h-full rounded-full" style="width: 85%; background-color: var(--secondary);"></div>
 </div>
 </div>
 <!-- Skill 2 -->
@@ -400,7 +401,7 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">90%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 90%;"></div>
+<div class="h-full rounded-full" style="width: 90%; background-color: var(--secondary);"></div>
 </div>
 </div>
 <!-- Skill 3 -->
@@ -410,7 +411,7 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">80%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 80%;"></div>
+<div class="h-full rounded-full" style="width: 80%; background-color: var(--secondary);"></div>
 </div>
 </div>
 <!-- Skill 4 -->
@@ -420,7 +421,7 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">75%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 75%;"></div>
+<div class="h-full rounded-full" style="width: 75%; background-color: var(--secondary);"></div>
 </div>
 </div>
 <!-- Skill 5 -->
@@ -430,7 +431,7 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">85%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 85%;"></div>
+<div class="h-full rounded-full" style="width: 85%; background-color: var(--secondary);"></div>
 </div>
 </div>
 <!-- Skill 6 -->
@@ -440,7 +441,47 @@ void main() {
 <span class="font-label-md text-label-md text-surface-tint font-bold">88%</span>
 </div>
 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-surface-tint rounded-full" style="width: 88%;"></div>
+<div class="h-full rounded-full" style="width: 88%; background-color: var(--secondary);"></div>
+</div>
+</div>
+<!-- Skill 7 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Leadership & Community Management</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">88%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full rounded-full" style="width: 88%; background-color: var(--secondary);"></div>
+</div>
+</div>
+<!-- Skill 8 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Public Speaking & Presentation</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">80%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full rounded-full" style="width: 80%; background-color: var(--secondary);"></div>
+</div>
+</div>
+<!-- Skill 9 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Cross-functional Collaboration</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full rounded-full" style="width: 85%; background-color: var(--secondary);"></div>
+</div>
+</div>
+<!-- Skill 10 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-on-background font-bold">Adaptability & Self-directed Learning</span>
+<span class="font-label-md text-label-md text-surface-tint font-bold">90%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full rounded-full" style="width: 90%; background-color: var(--secondary);"></div>
 </div>
 </div>
 </div>

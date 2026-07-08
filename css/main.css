@@ -122,15 +122,15 @@ nav {
   gap: 2rem; /* Spacing between links */
   
   /* Glassmorphism Magic */
-  background: rgba(255, 255, 255, 0.1); /* 10% opacity white */
-  backdrop-filter: blur(12px);           /* Blurs the gradient behind it */
-  -webkit-backdrop-filter: blur(12px);   /* Safari support */
+  /* background: rgba(255, 255, 255, 0.1); */ /* 10% opacity white */
+  /* backdrop-filter: blur(12px); */           /* Blurs the gradient behind it */
+  /* -webkit-backdrop-filter: blur(12px); */   /* Safari support */
   
   /* Shape & Borders */
   padding: 0.5rem 2rem;                /* Plump padding */
-  border-radius: 50px;                   /* Perfect pill shape */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle diamond border */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);   /* Soft drop shadow */
+  /* border-radius: 50px; */                   /* Perfect pill shape */
+  /* border: 1px solid rgba(255, 255, 255, 0.15); */ /* Subtle diamond border */
+  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); */   /* Soft drop shadow */
   
   margin: 0 auto 2.5rem auto;            /* Push content down */
 }
@@ -1533,6 +1533,7 @@ section:nth-child(even) {
   background-color: var(--primary);
   width: 100%;
   box-sizing: border-box;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .v2-footer-content {
@@ -1541,7 +1542,7 @@ section:nth-child(even) {
   gap: var(--space-6);
   max-width: var(--section-max-width);
   margin: 0 auto;
-  padding: var(--space-5) var(--space-6);
+  padding: var(--space-4) var(--space-6);
 }
 
 @media (min-width: 1024px) {
