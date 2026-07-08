@@ -18,15 +18,64 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 
+    <!-- Tailwind CDN & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Custom Design System Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000a24",
+                        "on-primary": "#ffffff",
+                        "secondary": "#855300",
+                        "secondary-container": "#ffa515",
+                        "on-secondary-container": "#684000",
+                        "surface-variant": "#e3e3de",
+                        "on-surface-variant": "#45464d",
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Outfit"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-amber:hover {
+            box-shadow: 0 4px 20px rgba(255, 165, 21, 0.4);
+        }
+    </style>
 </head>
 <body>
     
     <header class="hero hero-compact">
-    <nav class="nav">
-      <a href="./../index.html" class="nav-item" >Home</a>
-      <a href="./certificates.html" class="nav-item" >Certificates</a>
-      <a href="./contact.html" class="nav-item" >Contact</a>
-      <span class="nav-indicator"></span>
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
+        <div class="bg-white/80 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-6 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
+            
+            <!-- Navigation Links -->
+            <div class="flex items-center gap-6">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="../index.html">
+                    Home
+                </a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="./certificates.html">
+                    Certificates
+                </a>
+                <a class="font-body-md text-body-md text-primary font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer" href="./contact.html">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Hire Me Button -->
+            <button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber">
+                Hire Me
+            </button>
+
+        </div>
     </nav>
 
         <div class="hero-content">

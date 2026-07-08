@@ -86,21 +86,11 @@
             transform: translateY(0);
         }
     }
-
-    .gradient-bg-hero {
-        background: linear-gradient(135deg, #14213d 0%, #000a24 100%);
-    }
-    
-    .hero-cutout {
-        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-    }
 </style>
 
     <!-- Tailwind CDN & Fonts -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
 
 <!-- Custom Design System Config -->
 <script id="tailwind-config">
@@ -683,8 +673,8 @@ void main() {
 </div>
 
     <div class="carousel-buttons scroll-effect slide-up">
-      <button onclick="prevSlide()">← Prev</button>
-      <button onclick="nextSlide()">Next →</button>
+      <button id="prev-slide-btn">← Prev</button>
+      <button id="next-slide-btn">Next →</button>
     </div>
 
 </section>
