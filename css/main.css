@@ -56,7 +56,7 @@
 
   /* --- REFERENCE DESIGN TOKENS --- */
   --stack-xl: 8rem;
-  --stack-lg: 4rem;
+  --stack-lg: 2rem;
   --stack-md: 2rem;
   --gutter: 1.5rem;
   --margin-mobile: 1rem;
@@ -127,7 +127,6 @@ nav {
   /* -webkit-backdrop-filter: blur(12px); */   /* Safari support */
   
   /* Shape & Borders */
-  padding: 0.5rem 2rem;                /* Plump padding */
   /* border-radius: 50px; */                   /* Perfect pill shape */
   /* border: 1px solid rgba(255, 255, 255, 0.15); */ /* Subtle diamond border */
   /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); */   /* Soft drop shadow */
@@ -1533,7 +1532,8 @@ section:nth-child(even) {
   background-color: var(--primary);
   width: 100%;
   box-sizing: border-box;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 3rem 3rem 0 0;
+  margin-top: -1rem;
 }
 
 .v2-footer-content {
