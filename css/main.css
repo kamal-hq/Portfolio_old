@@ -114,75 +114,98 @@ header.hero {
   z-index: 100;
 }
 
-/* THE FLOATING GLASS NAV */
-nav {
-  display: inline-flex; /* Shrinks to fit content exactly */
-  justify-content: center;
-  align-items: center;
-  gap: 2rem; /* Spacing between links */
-  
-  /* Glassmorphism Magic */
-  /* background: rgba(255, 255, 255, 0.1); */ /* 10% opacity white */
-  /* backdrop-filter: blur(12px); */           /* Blurs the gradient behind it */
-  /* -webkit-backdrop-filter: blur(12px); */   /* Safari support */
-  
-  /* Shape & Borders */
-  /* border-radius: 50px; */                   /* Perfect pill shape */
-  /* border: 1px solid rgba(255, 255, 255, 0.15); */ /* Subtle diamond border */
-  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); */   /* Soft drop shadow */
-  
-  margin: 0 auto 2.5rem auto;            /* Push content down */
+
+
+/* --- V2 Vanilla Nav Classes (Replacing Tailwind) --- */
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav a {
-  color: #ffffff;
-  margin: 0; /* Margin handled by gap in nav */
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase; /* Makes it look more premium */
-  letter-spacing: 1px;       /* Adds breathing room to letters */
-  position: relative;
-  padding: 0.2rem 0;
-  opacity: 0.85;             /* Slightly transparent by default */
-  transition: all 0.3s ease;
+.nav-pill {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 0 0 1.5rem 1.5rem;
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    min-width: 480px;
+    padding: 0.5rem 1.5rem;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
-/* Hover State: Bright white + Glow */
-nav a:hover {
-  opacity: 1;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Text Glow */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-/* The Active/Hover Line (Glowing) */
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  height: 2px;
-  width: 0%;
-  background-color: var(--secondary); /* Gold */
-  box-shadow: 0 0 10px var(--secondary); /* Gold Glow */
-  transition: all 0.3s ease;
-  transform: translateX(-50%); /* Centers the animation */
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-on-surface-variant, #45464d);
+    text-decoration: none;
+    transition: color 200ms ease, transform 200ms ease;
+    cursor: pointer;
 }
 
-nav a:hover::after {
-  width: 100%; /* Expands from center */
+.nav-link:hover {
+    color: var(--primary);
+    transform: scale(1.05);
 }
+
+.nav-link.active {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 50%;
+}
+
+.nav-cta {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    background: var(--secondary);
+    color: var(--text-on-secondary);
+    font-weight: 700;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 200ms ease;
+    box-shadow: 0 4px 20px rgba(255, 165, 21, 0.4);
+}
+
+.nav-cta:hover { transform: scale(1.1); }
+.nav-cta:active { transform: scale(0.95); }
 
 /* ========================================= */
 /* MOBILE NAV ADJUSTMENT                     */
 /* ========================================= */
 @media (max-width: 480px) {
-  nav {
-    display: flex;        /* Full width on mobile */
-    width: 90%;
-    gap: 1rem;
-    padding: 0.5rem 0.8rem;
-    border-radius: 30px;  /* Less rounded on small screens to save space */
-    background: rgba(255, 255, 255, 0.08);
-  }
+
   
   nav a {
     font-size: 0.5rem;
@@ -1261,37 +1284,9 @@ footer {
   padding: var(--stack-xl) var(--margin-desktop) var(--stack-lg);
 }
 
-.hero-compact {
-  padding: var(--space-6) var(--space-4) var(--space-5);
-}
 
-/* Glassmorphic Nav Pill */
-.nav-pill {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-4);
-  padding: var(--space-2) var(--space-4);
-  margin-bottom: var(--space-6);
-}
 
-.nav-pill a {
-  color: var(--text-on-primary);
-  font-family: var(--font-body);
-  font-weight: 500;
-  opacity: 0.85;
-  text-decoration: none;
-  transition: opacity var(--duration-micro) var(--ease-micro);
-}
 
-.nav-pill a:hover,
-.nav-pill a.active {
-  opacity: 1;
-}
 
 /* Component: Buttons */
 .btn-primary {
@@ -1500,7 +1495,10 @@ section:nth-child(even) {
 
 /* REFERENCE DESIGN: Hero compact for sub-pages */
 .hero-compact {
-  padding: var(--stack-lg) var(--margin-mobile) var(--stack-md) var(--margin-mobile) !important;
+  padding-top: 6rem !important;
+  padding-bottom: 2rem !important;
+  padding-left: var(--margin-mobile) !important;
+  padding-right: var(--margin-mobile) !important;
 }
 
 /* REFERENCE DESIGN: Intro text styling */
