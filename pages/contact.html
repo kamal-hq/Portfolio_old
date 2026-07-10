@@ -16,12 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN (v6 recommended) -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-
     <!-- Tailwind CDN & Fonts -->
+    <style>
+        .glow-amber:hover {
+            box-shadow: 0 4px 20px rgba(255, 165, 21, 0.4);
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com/3.4.1"></script>
-    
-    <!-- Custom Design System Config -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -44,41 +45,35 @@
             }
         }
     </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <style>
-        .glow-amber:hover {
-            box-shadow: 0 4px 20px rgba(255, 165, 21, 0.4);
-        }
-    </style>
 </head>
 <body>
     
-    <header class="hero hero-compact">
-    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
-        <div class="bg-white/80 backdrop-blur-xl rounded-b-full mt-6 mx-auto w-fit px-6 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
-            
-            <!-- Navigation Links -->
-            <div class="flex items-center gap-6">
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="../index.html">
-                    Home
-                </a>
-                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="./certificates.html">
-                    Certificates
-                </a>
-                <a class="font-body-md text-body-md text-primary font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer" href="./contact.html">
-                    Contact
-                </a>
-            </div>
-
-            <!-- Hire Me Button -->
-            <button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber">
-                Let's Talk
-            </button>
-
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
+    <div class="bg-white/80 backdrop-blur-xl rounded-b-full mx-auto w-fit px-12 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
+        
+        <!-- Navigation Links -->
+        <div class="flex items-center gap-6">
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="../index.html">
+                Home
+            </a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 cursor-pointer" href="./certificates.html">
+                Certificates
+            </a>
+            <a class="font-body-md text-body-md text-primary font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer" href="./contact.html">
+                Contact
+            </a>
         </div>
-    </nav>
 
+        <!-- Hire Me Button -->
+        <button class="font-body-md text-body-md bg-secondary-container text-on-secondary-container font-bold rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300 cursor-pointer active:scale-95 glow-amber">
+            Let's Talk
+        </button>
+
+    </div>
+</nav>
+
+    <header class="hero">
         <div class="hero-content">
             <h1 class="scroll-effect slide-up"><i class="fa-solid fa-link"></i> Let's Connect</h1>
             <p class="tagline scroll-effect fade-in">Interested in working together or just want to say hi? I'm just a message away!</p>
@@ -86,32 +81,44 @@
     </header>
 
     <section class="contact-page">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left;">
+            <!-- Contact Form -->
+            <div class="contact-form scroll-effect slide-up card-base" style="margin-top: 0;">
+                <form action="https://formspree.io/f/xpwlqbwn" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input class="form-input" type="text" name="name" placeholder="Your Name" required style="margin:0;">
+                    <input class="form-input" type="email" name="_replyto" placeholder="Your Email" required style="margin:0;">
+                    <textarea class="form-input" name="message" rows="5" placeholder="Your Message" required style="margin:0;"></textarea>
+                    <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Message</button>
+                </form>
+            </div>
 
-  <div class="contact-form scroll-effect slide-up">
-    <form action="https://formspree.io/f/xpwlqbwn" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="button">Send Message</button>
-    </form>
-  </div>
+            <!-- Map & Location -->
+            <div class="map-container scroll-effect slide-in card-base" style="margin-top: 0; display: flex; flex-direction: column;">
+                <h3 style="margin-bottom: 1rem; color: var(--primary);">My Location – Sargodha, Pakistan</h3>
+                <iframe
+                    title="Google Maps Location for Muhammad Kamal in Sargodha, Pakistan"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108316.2581448803!2d72.6297938!3d32.0824664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392177b0c7344c87%3A0xa3e4167f8482c348!2sSargodha%2C%20Punjab!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                    width="100%" height="100%" style="border:0; min-height: 250px; border-radius: var(--radius-sm);" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
 
-  <div class="map-container scroll-effect slide-in">
-    <h2>My Location – Sargodha, Pakistan</h2>
-    <iframe
-      title="Google Maps Location for Muhammad Kamal in Sargodha, Pakistan"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108316.2581448803!2d72.6297938!3d32.0824664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392177b0c7344c87%3A0xa3e4167f8482c348!2sSargodha%2C%20Punjab!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-
-  <div class="contact-info-block scroll-effect slide-up">
-  <div class="info-item">
-    <a href="../assets/MuhammadKamal_Resume.pdf" download class="download-btn">
-      <i class="fa-solid fa-download"></i> Download CV
-    </a>
-  </div>
-</div>
-</section>
+        <div class="contact-info-block scroll-effect slide-up" style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+            <a href="../assets/MuhammadKamal_Resume.pdf" download class="btn-primary" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <i class="fa-solid fa-download"></i> Download CV
+            </a>
+            <div class="social-icons" style="margin-top: 0; display: flex; gap: 1rem;">
+                <a aria-label="LinkedIn" class="btn-primary" href="https://linkedin.com/in/muhammadkamalofficial/" target="_blank" style="padding: 0.75rem; border-radius: 50%; display: flex; justify-content: center; align-items: center; width: 3rem; height: 3rem;">
+                    <i class="fa-brands fa-linkedin-in" style="font-size: 1.25rem;"></i>
+                </a>
+                <a aria-label="GitHub" class="btn-primary" href="https://github.com/muhammad-kamal-asif/" target="_blank" style="padding: 0.75rem; border-radius: 50%; display: flex; justify-content: center; align-items: center; width: 3rem; height: 3rem;">
+                    <i class="fa-brands fa-github" style="font-size: 1.25rem;"></i>
+                </a>
+                <a aria-label="Instagram" class="btn-primary" href="https://www.instagram.com/muhammad_kamal_001/" target="_blank" style="padding: 0.75rem; border-radius: 50%; display: flex; justify-content: center; align-items: center; width: 3rem; height: 3rem;">
+                    <i class="fa-brands fa-instagram" style="font-size: 1.25rem;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
 
 

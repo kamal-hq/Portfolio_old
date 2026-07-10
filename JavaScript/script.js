@@ -297,6 +297,11 @@ const pdfFiles = [
     title: "EXCHANGE PROGRAM - Booklet", 
     file: "EXCHANGE PROGRAM - Record.pdf", 
     desc: "Official booklet for Exchange Program to USA by Incharge BIC." 
+  },
+  { 
+    title: "Muse By Seen - Booklet", 
+    file: "Muse By Seen - Booklet.pdf", 
+    desc: "Official booklet for Muse By Seen." 
   }
 ];
 
