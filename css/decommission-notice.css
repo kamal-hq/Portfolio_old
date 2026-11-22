@@ -7,6 +7,10 @@
   --mk-decomm-h: 46px;
 }
 
+html {
+  overflow-x: clip;
+}
+
 .mk-decomm-spacer {
   display: block;
   width: 100%;
