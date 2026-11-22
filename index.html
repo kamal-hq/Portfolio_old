@@ -137,6 +137,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Muhammad Kamal – Portfolio</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/decommission-notice.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,10 +146,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div style="position: fixed; top: 0; left: 0; right: 0; background-color: #ef4444; color: white; text-align: center; padding: 10px; font-family: sans-serif; font-weight: bold; z-index: 999999; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        ⚠️ NOTICE: This portfolio has been decommissioned. <a href="https://muhammadkamal.vercel.app/" style="color: #fde047; text-decoration: underline; margin-left: 10px;">Please visit my new portfolio here &rarr;</a>
+<div id="mk-decomm-banner" class="mk-decomm-banner" role="region" aria-label="Decommissioned portfolio notice">
+    <div class="mk-decomm-banner__inner">
+        <span class="mk-decomm-banner__badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            ARCHIVED
+        </span>
+        <span class="mk-decomm-banner__text">This portfolio has been decommissioned.</span>
+        <a class="mk-decomm-banner__cta" href="https://muhammadkamal.vercel.app/">
+            Visit New Portfolio
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <button type="button" id="mk-decomm-info-btn" class="mk-decomm-banner__info" aria-label="Show full decommission notice">Notice</button>
     </div>
-<nav class="fixed top-14 left-0 right-0 z-50 flex justify-center items-center transform-gpu">
+</div>
+<div id="mk-decomm-spacer" class="mk-decomm-spacer" aria-hidden="true"></div>
+<nav class="fixed left-0 right-0 z-[150] flex justify-center items-center transform-gpu" style="top: var(--mk-decomm-h, 46px);">
     <div class="bg-white/80 backdrop-blur-xl rounded-b-full mx-auto w-fit px-12 py-2 border-[0.5px] border-white/50 shadow-xl flex items-center gap-8">
         
         <!-- Navigation Links -->
@@ -791,5 +804,6 @@ void main() {
   <!-- Skills, Projects, Experience, Certifications, and Footer will follow -->
 <script src="./JavaScript/script.js" defer></script>
 <script src="./JavaScript/scroll-animation.js" defer></script>
+<script src="./JavaScript/decommission-notice.js" defer></script>
 </body>
 </html>

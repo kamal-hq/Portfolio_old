@@ -1,0 +1,366 @@
+/* =========================================================
+ * Decommission Notice Banner & On-Screen Warning Modal
+ * Shared across all pages and repository branches.
+ * ========================================================= */
+
+:root {
+  --mk-decomm-h: 46px;
+}
+
+.mk-decomm-spacer {
+  display: block;
+  width: 100%;
+  height: var(--mk-decomm-h, 46px);
+  flex-shrink: 0;
+}
+
+.mk-decomm-banner,
+.mk-decomm-banner *,
+.mk-decomm-backdrop,
+.mk-decomm-backdrop * {
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Persistent Top Warning Banner --- */
+.mk-decomm-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
+  background: linear-gradient(90deg, #6b1116 0%, #991b1b 50%, #6b1116 100%);
+  border-bottom: 2px solid #fca311;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  padding: 8px 16px;
+  color: #ffffff;
+}
+
+.mk-decomm-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.mk-decomm-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(252, 163, 17, 0.18);
+  border: 1px solid rgba(252, 163, 17, 0.65);
+  color: #fde68a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.mk-decomm-banner__text {
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.mk-decomm-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fca311;
+  color: #0c1425 !important;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  box-shadow: 0 2px 10px rgba(252, 163, 17, 0.35);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.mk-decomm-banner__cta:hover {
+  background: #ffb733;
+  color: #0c1425 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(252, 163, 17, 0.5);
+}
+
+.mk-decomm-banner__info {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #f8fafc;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.mk-decomm-banner__info:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.mk-decomm-banner svg,
+.mk-decomm-backdrop svg {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* --- On-Screen Warning Modal Overlay --- */
+.mk-decomm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(6, 11, 25, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.mk-decomm-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mk-decomm-modal {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  background: linear-gradient(160deg, #131f3a 0%, #0b1324 100%);
+  border: 1px solid rgba(252, 163, 17, 0.42);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(239, 68, 68, 0.22);
+  padding: 32px 28px 26px;
+  text-align: center;
+  color: #f8fafc;
+  overflow: hidden;
+  transform: translateY(12px) scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mk-decomm-backdrop.is-open .mk-decomm-modal {
+  transform: translateY(0) scale(1);
+}
+
+.mk-decomm-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ef4444 0%, #fca311 50%, #ef4444 100%);
+}
+
+.mk-decomm-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.mk-decomm-modal__close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.mk-decomm-modal__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 9999px;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1.5px solid rgba(248, 113, 113, 0.5);
+  box-shadow: 0 0 28px rgba(239, 68, 68, 0.25);
+  color: #fca311;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mk-decomm-modal__pill {
+  display: inline-block;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(248, 113, 113, 0.38);
+  color: #fecaca;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+h2.mk-decomm-modal__title {
+  font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
+  color: #ffffff !important;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px 0 !important;
+}
+
+h2.mk-decomm-modal__title::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mk-decomm-modal__desc {
+  color: #cbd5e1;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 18px 0;
+}
+
+.mk-decomm-modal__url-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  color: #fbbf24 !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none !important;
+  word-break: break-all;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.mk-decomm-modal__url-box:hover {
+  background: rgba(252, 163, 17, 0.12);
+  border-color: rgba(252, 163, 17, 0.45);
+  color: #fde68a !important;
+}
+
+.mk-decomm-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mk-decomm-modal__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, #fca311 0%, #f59e0b 100%);
+  color: #0c1425 !important;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  box-shadow: 0 6px 22px rgba(252, 163, 17, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mk-decomm-modal__cta:hover {
+  filter: brightness(1.06);
+  color: #0c1425 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px rgba(252, 163, 17, 0.48);
+}
+
+.mk-decomm-modal__dismiss {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #cbd5e1;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.mk-decomm-modal__dismiss:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #ffffff;
+}
+
+.mk-decomm-banner__cta:focus-visible,
+.mk-decomm-banner__info:focus-visible,
+.mk-decomm-modal__close:focus-visible,
+.mk-decomm-modal__url-box:focus-visible,
+.mk-decomm-modal__cta:focus-visible,
+.mk-decomm-modal__dismiss:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .mk-decomm-banner {
+    padding: 7px 10px;
+  }
+
+  .mk-decomm-banner__inner {
+    gap: 6px 8px;
+  }
+
+  .mk-decomm-banner__text {
+    font-size: 12.5px;
+  }
+
+  .mk-decomm-modal {
+    padding: 28px 20px 22px;
+    border-radius: 16px;
+  }
+
+  h2.mk-decomm-modal__title {
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mk-decomm-backdrop,
+  .mk-decomm-modal,
+  .mk-decomm-banner__cta,
+  .mk-decomm-banner__info,
+  .mk-decomm-modal__close,
+  .mk-decomm-modal__cta,
+  .mk-decomm-modal__dismiss {
+    transition: none !important;
+  }
+}
